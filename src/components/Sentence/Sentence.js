@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Chord from "../../components/Chord/Chord.js";
 import RomanNumeral from "../../components/RomanNumeral/RomanNumeral.js";
 import Key from "../../components/Key/Key.js";
 
-class Sentence extends React.Component {
+class Sentence extends Component {
     renderChord(i) {
         return <Chord />;
     }
@@ -16,6 +16,8 @@ class Sentence extends React.Component {
     renderKey(i) {
         return <Key />;
     }
+
+    
 
     render(i) {
         return (

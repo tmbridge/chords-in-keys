@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class Key extends React.Component {
+class Key extends Component {
     render() {
         return "D";
     }

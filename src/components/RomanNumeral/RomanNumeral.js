@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class RomanNumeral extends React.Component {
+class RomanNumeral extends Component {
     render() {
         return "VI";
     }

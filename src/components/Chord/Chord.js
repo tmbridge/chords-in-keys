@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class Chord extends React.Component {
+class Chord extends Component {
     render() {
         return "Bm";
     }
