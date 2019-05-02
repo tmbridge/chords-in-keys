@@ -1,5 +1,5 @@
 import React from 'react';
-import Sentence from './components/Sentence.js'
+import SentenceContainer from './components/Sentence/SentenceContainer.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <Sentence/>
+          <SentenceContainer/>
       </header>
         <body>
 

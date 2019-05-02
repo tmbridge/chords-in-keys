@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Chord from "./Chord.js";
-import RomanNumeral from "./RomanNumeral.js";
-import Key from "./Key.js";
+import SentenceChord from "./SentenceChord.js";
+import SentenceRomanNumeral from "./SentenceRomanNumeral.js";
+import SentenceKey from "./SentenceKey.js";
+import SentenceContainer from "./SentenceContainer.js";
 
 // Helpers
-import { RandomKeyGenerator } from "../classes/RandomKeyGenerator.js";
+import { RandomKeyGenerator } from "../../classes/RandomKeyGenerator.js";
 
 class Sentence extends Component {
 
@@ -30,11 +31,10 @@ class Sentence extends Component {
         let { currentKey } = this.state;
         let { currentChord } = this.state;
         return (
-            <div>
-              {/* { Object.keys(majorKeys.keys.A) }*/}
-                <br/>
-                <Chord value={currentChord.chordAbbreviation}/> is the <RomanNumeral value={currentChord.nashvilleRoman}/> in the key of <Key value={currentKey.chords[0].chordAbbreviation} />
-            </div>
+            // Question: Why are divs needed here?  Get an error otherwise.
+                <div>
+                    <SentenceChord value={currentChord.chordAbbreviation} /> is the <SentenceRomanNumeral value={currentChord.nashvilleRoman} /> in the key of <SentenceKey value={currentKey.chords[0].chordAbbreviation} />
+                </div>
         );
     }
 }
