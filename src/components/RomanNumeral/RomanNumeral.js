@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 
 class RomanNumeral extends Component {
     render() {
-        return "VI";
+        console.log("Roman Numeral value in component: " + this.props.value)
+        return this.props.value;
     }
 }
 

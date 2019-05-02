@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class Key extends Component {
+
     render() {
-        return "D";
+        console.log("Key value in component: " + this.props.value)
+        return this.props.value;
     }
 }
 
