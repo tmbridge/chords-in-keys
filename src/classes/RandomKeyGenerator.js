@@ -155,6 +155,7 @@ export class RandomKeyGenerator {
                     accidental: "#",
                 },
             ],
+            // Question: How to extract this out to a class method ?
             randomChord: function () {
                 let objectKeys = Object.keys(this.chords);
                 return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
@@ -175,5 +176,23 @@ export class RandomKeyGenerator {
 
     getMajorKeys() {
         return this.majorKeys;
+    }
+
+    getKey(abbreviatedName) {
+        this.getMajorKeys().keys.chords.find(abbreviatedName);
+    }
+
+    getRandomChord(quality) {
+        let allKeys = {};
+        if (quality == "major") {
+            let allKeys = this.majorKeys;
+        }
+        let objectKeys = Object.keys(allKeys);
+        return allKeys.chords[objectKeys[objectKeys.length * Math.random() << 0]];
+    }
+
+    getRandomChordFromKey(key) {
+        let objectKeys = Object.keys(this.chords);
+        return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
     }
 }
