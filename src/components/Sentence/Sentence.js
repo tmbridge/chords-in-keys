@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import SentenceChord from "./SentenceChord.js";
 import SentenceRomanNumeral from "./SentenceRomanNumeral.js";
 import SentenceKey from "./SentenceKey.js";
-import SentenceContainer from "./SentenceContainer.js";
 
 // Helpers
 import { RandomKeyGenerator } from "../../classes/RandomKeyGenerator.js";

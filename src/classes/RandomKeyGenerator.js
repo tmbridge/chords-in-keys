@@ -1,5 +1,24 @@
 export class RandomKeyGenerator {
     constructor() {
+
+        this.nashvilleNumbers = {
+            // TODO: make this a nested function that generates 1-7
+            arabic: [1, 2, 3, 4, 5, 6, 7],
+            roman: ['I','II','III','IV','V','VI','VII'],
+            get: function(i) {return this[i]},
+            // Question: Why is this undefined in get2?
+/*            get2: function(i) {return (function() {
+                console.log("this:" + this + "i" + i);
+                if(i in this.parent) {
+                    return this[i];
+                }
+                else {
+                    return this['roman'];
+                }
+            })()
+            },*/
+        };
+
         this.A = {
             chords: [
                 {  // A
@@ -73,20 +92,19 @@ export class RandomKeyGenerator {
                     accidental: "#",
                 },
             ],
+            // TODO: Extract this function to a class method so it's not included in each key's object.
             randomChord: function () {
                 let objectKeys = Object.keys(this.chords);
-                console.log(objectKeys);
-                console.log(objectKeys[objectKeys.length * Math.random() << 0]);
-                //console.log(this.keys[objectKeys[objectKeys.length * Math.random() << 0]]);
                 return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
             }
         };
 
         this.B = {
             chords: [
+                // TODO: Instead of defining these with hard code, derive each using map functions and single-definitions for repeated data.
                 {  // B
-                    nashvilleRoman: 'I',
-                    nashvilleArabic: '1',
+                    nashvilleRoman: this.getNashvilleNumbers('roman')[0],
+                    nashvilleArabic: this.getNashvilleNumbers('arabic')[0],
                     chordAbbreviation: "B",
                     chordFull: "B major",
                     chordQuality: "major",
@@ -95,8 +113,8 @@ export class RandomKeyGenerator {
                     accidental: "",
                 },
                 {  // C#m
-                    nashvilleRoman: 'II',
-                    nashvilleArabic: '2',
+                    nashvilleRoman: this.getNashvilleNumbers('roman')[1],
+                    nashvilleArabic: this.getNashvilleNumbers('arabic')[1],
                     chordAbbreviation: "C#m",
                     chordFull: "C# minor",
                     chordQuality: "minor",
@@ -105,8 +123,8 @@ export class RandomKeyGenerator {
                     accidental: "#",
                 },
                 {  // D#m
-                    nashvilleRoman: 'III',
-                    nashvilleArabic: '3',
+                    nashvilleRoman: this.getNashvilleNumbers('roman')[2],
+                    nashvilleArabic: this.getNashvilleNumbers('arabic')[2],
                     chordFull: "D# minor",
                     chordAbbreviation: "D#m",
                     chordQuality: "minor",
@@ -115,8 +133,8 @@ export class RandomKeyGenerator {
                     accidental: "#",
                 },
                 {  // E
-                    nashvilleRoman: 'IV',
-                    nashvilleArabic: '4',
+                    nashvilleRoman: this.getNashvilleNumbers('roman')[3],
+                    nashvilleArabic: this.getNashvilleNumbers('arabic')[3],
                     chordFull: "E major",
                     chordAbbreviation: "E",
                     chordQuality: "major",
@@ -125,8 +143,8 @@ export class RandomKeyGenerator {
                     accidental: "",
                 },
                 {  // F#
-                    nashvilleRoman: 'V',
-                    nashvilleArabic: '5',
+                    nashvilleRoman: this.getNashvilleNumbers('roman')[4],
+                    nashvilleArabic: this.getNashvilleNumbers('arabic')[4],
                     chordFull: "F# major",
                     chordAbbreviation: "F#",
                     chordQuality: "major",
@@ -135,8 +153,8 @@ export class RandomKeyGenerator {
                     accidental: "#",
                 },
                 {  // G#m
-                    nashvilleRoman: 'VI',
-                    nashvilleArabic: '6',
+                    nashvilleRoman: this.getNashvilleNumbers('roman')[5],
+                    nashvilleArabic: this.getNashvilleNumbers('arabic')[5],
                     chordFull: "G# minor",
                     chordAbbreviation: "G#m",
                     chordQuality: "minor",
@@ -145,8 +163,8 @@ export class RandomKeyGenerator {
                     accidental: "#",
                 },
                 {  // A#dim
-                    nashvilleRoman: 'VII',
-                    nashvilleArabic: '7',
+                    nashvilleRoman: this.getNashvilleNumbers('roman')[6],
+                    nashvilleArabic: this.getNashvilleNumbers('arabic')[6],
                     chordFull: "A# diminished",
                     chordAbbreviation: "A#°",
                     chordQualityFull: "diminished",
@@ -162,16 +180,30 @@ export class RandomKeyGenerator {
             }
         };
 
+        // TODO: Add sharp/flat keys and minor keys.  Ideally, flesh out the chord generation workflow from line 103 first and use it to generate the keys with as little repetition as possible.
         this.majorKeys = {
             keys: {
                 A: this.A,
                 B: this.B,
+/*                C: "C",
+                D: "D",
+                E: "E",
+                F: "F",
+                G: "G",*/
             },
             randomKey: function () {
                 let objectKeys = Object.keys(this.keys);
                 return this.keys[objectKeys[objectKeys.length * Math.random() << 0]];
             }
         };
+    }
+
+    getNashvilleNumbers(type) {
+      //  if (type == 'arabic') {
+            return this.nashvilleNumbers.get(type);
+     //   else {
+      //      return this.nashvilleNumbers.get(type);
+      //  }
     }
 
     getMajorKeys() {

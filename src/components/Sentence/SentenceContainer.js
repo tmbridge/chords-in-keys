@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Sentence  from "./Sentence.js";
+import AnswerContainer from "../Answer/AnswerContainer.js";
 
 class SentenceContainer extends Component {
 
@@ -9,6 +10,8 @@ class SentenceContainer extends Component {
         return (
             <div>
                 <Sentence />
+                <br/>
+                <AnswerContainer/>
             </div>
         );
     }
