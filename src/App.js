@@ -1,5 +1,5 @@
 import React from 'react';
-import Sentence from './components/Sentence/Sentence.js'
+import Sentence from './components/Sentence.js'
 import logo from './logo.svg';
 import './App.css';
 

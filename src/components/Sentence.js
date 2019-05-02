@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Chord from "../../components/Chord/Chord.js";
-import RomanNumeral from "../../components/RomanNumeral/RomanNumeral.js";
-import Key from "../../components/Key/Key.js";
+import Chord from "./Chord.js";
+import RomanNumeral from "./RomanNumeral.js";
+import Key from "./Key.js";
 
 const A = {
     chords : [
