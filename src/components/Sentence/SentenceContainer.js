@@ -11,9 +11,6 @@ class SentenceContainer extends Component {
         return (
             <div>
                 <Sentence />
-                <br/>
-                <AnswerContainer currentKey={currentKey}/>
-                <br/>
             </div>
         );
     }
