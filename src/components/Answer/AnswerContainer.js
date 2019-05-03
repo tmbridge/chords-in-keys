@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {RandomKeyGenerator} from "../../classes/RandomKeyGenerator";
+import Sentence from "../Sentence/Sentence";
 
 class AnswerContainer extends Component {
 
@@ -33,6 +34,9 @@ class AnswerContainer extends Component {
                         { key }
                     </button>
                 ))}
+                <br/>
+                {/*TODO: Question: How to use sibling Sentence component here.
+                <button onClick={() =>  Sentence.next()} value="skip">Skip</button>*/}
             </div>
         );
     }
