@@ -64,7 +64,7 @@ export class RandomKeyGenerator {
             arabic: [1, 2, 3, 4, 5, 6, 7],
             roman: ['I','II','III','IV','V','VI','VII'],
             get: function(i) {return this[i]},
-            // Question: Why is this undefined in get2?
+            // TODO: Question: Why is 'this' undefined in get2?
 /*            get2: function(i) {return (function() {
                 console.log("this:" + this + "i" + i);
                 if(i in this.parent) {
@@ -240,7 +240,7 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
             ],
-            // Question: How to extract this out to a class method ?
+            // TODO: Question: How to extract this out to a class method ?
             randomChord: function () {
                 let objectKeys = Object.keys(this.chords);
                 return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
