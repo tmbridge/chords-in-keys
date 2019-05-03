@@ -1,3 +1,5 @@
+import { randomChord } from "./classes/RandomKeyGenerator";
+
 // Export is a node thing but also a webpack thing... TODO: research export
 export const chordQualities = [
     {
@@ -147,11 +149,7 @@ export const A = {
             accidental: "♯",
         },
     ],
-    // TODO: Extract this function to a class method so it's not included in each key's object.
-    randomChord: function () {
-        let objectKeys = Object.keys(this.chords);
-        return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
-    }
+
 };
 
 // Key of B Major
@@ -311,11 +309,7 @@ export const C = {
             accidental: "♮",
         },
     ],
-    // TODO: Extract this function to a class method so it's not included in each key's object.
-    randomChord: function () {
-        let objectKeys = Object.keys(this.chords);
-        return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
-    }
+
 };
 
 // Key of E Major
@@ -393,11 +387,7 @@ export const E = {
             accidental: "♯",
         },
     ],
-    // TODO: Extract this function to a class method so it's not included in each key's object.
-    randomChord: function () {
-        let objectKeys = Object.keys(this.chords);
-        return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
-    }
+
 };
 
 // Key of D Major
@@ -475,11 +465,7 @@ export const D = {
             accidental: "♯",
         },
     ],
-    // TODO: Extract this function to a class method so it's not included in each key's object.
-    randomChord: function () {
-        let objectKeys = Object.keys(this.chords);
-        return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
-    }
+
 };
 
 // Key of F Major
@@ -557,11 +543,7 @@ export const F = {
             accidental: "♮",
         },
     ],
-    // TODO: Extract this function to a class method so it's not included in each key's object.
-    randomChord: function () {
-        let objectKeys = Object.keys(this.chords);
-        return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
-    }
+
 };
 
 // Key of G Major
@@ -639,11 +621,7 @@ export const G = {
             accidental: "♯",
         },
     ],
-    // TODO: Extract this function to a class method so it's not included in each key's object.
-    randomChord: function () {
-        let objectKeys = Object.keys(this.chords);
-        return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
-    }
+
 };
 
 // TODO: Add sharp/flat keys and minor keys.
@@ -659,9 +637,5 @@ export const majorKeys = {
         E: E,
         F: F,
         G: G,
-    },
-    randomKey: function () {
-        let objectKeys = Object.keys(this.keys);
-        return this.keys[objectKeys[objectKeys.length * Math.random() << 0]];
     }
 };

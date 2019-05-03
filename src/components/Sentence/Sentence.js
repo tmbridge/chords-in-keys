@@ -6,7 +6,7 @@ import SentenceKey from "./SentenceKey.js";
 
 // Constants
 import { majorKeys } from "../../Constants"; // equal to var chordQualities = [].  Can use in class with just 'chordQualities'"
-import { RandomKeyGenerator } from "../../classes/RandomKeyGenerator.js";
+import { randomKey, randomChord, RandomKeyGenerator } from "../../classes/RandomKeyGenerator.js";
 
 class Sentence extends Component {
 
@@ -19,10 +19,10 @@ class Sentence extends Component {
         const RKG = new RandomKeyGenerator();
 
         // State
-        let newKey =  majorKeys.randomKey();
+        let newKey =  randomKey();
         this.state = {
             currentKey : newKey,
-            currentChord : newKey.randomChord(),
+            currentChord : randomChord(newKey),
         }
         // End state
     }
@@ -34,10 +34,10 @@ class Sentence extends Component {
         // TODO: Question: How to initialize this in multi-component scope?
         const RKG = new RandomKeyGenerator();
 
-        let newKey = RKG.majorKeys.randomKey();
+        let newKey =  randomKey();
         this.setState({
-           currentKey : newKey,
-           currentChord : newKey.randomChord(),
+            currentKey : newKey,
+            currentChord : randomChord(newKey),
         });
     }
 

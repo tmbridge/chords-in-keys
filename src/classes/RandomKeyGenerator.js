@@ -1,20 +1,26 @@
-import { chordQualities, baseNotes, nashvilleNumbers, A, B, C, D, E, F, G } from "../Constants"; // equal to var chordQualities = [].  Can use in class with just 'chordQualities'"
+import { majorKeys } from "../Constants"; // equal to var chordQualities = [].  Can use in class with just 'chordQualities'"
+
+export const random = (ceiling, floor=0) => {
+    return Math.floor(Math.random() * ceiling);
+}
 
 export const randomChord = (sourceKey) => {
+    console.log("sourceKey: " + sourceKey);
     let length = sourceKey.chords.length;
-
-    // Math.floor(Math.random() * length)
-
-   // return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
-
-    //randomChord(A);
+    console.log("Length: " + length);
+    return sourceKey.chords[random(length)];
 }
+
+export const randomKey = () => {
+    let objectKeys = Object.keys(majorKeys.keys);
+    let length = objectKeys.length;
+    return majorKeys.keys[objectKeys[random(length)]];
+}
+
 
 export class RandomKeyGenerator {
 
     constructor() {
-
-        // Helper constants/methods.
     }
 
     getAllMajorKeys() {
