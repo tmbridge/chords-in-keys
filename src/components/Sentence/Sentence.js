@@ -5,8 +5,7 @@ import SentenceNashvilleNumber from "./SentenceNashvilleNumber.js";
 import SentenceKey from "./SentenceKey.js";
 
 // Constants
-import { majorKeys } from "../../Constants"; // equal to var chordQualities = [].  Can use in class with just 'chordQualities'"
-import { randomKey, randomChord, RandomKeyGenerator } from "../../classes/RandomKeyGenerator.js";
+import { getRandomKey, getRandomChordFromKey } from "../../RandomKeyGenerator.js";
 
 class Sentence extends Component {
 
@@ -14,15 +13,11 @@ class Sentence extends Component {
     constructor(props) {
         super(props);
 
-        // Initalize RKG.
-        // TODO: Question: How to intialize this in multi-component scope?
-        const RKG = new RandomKeyGenerator();
-
         // State
-        let newKey =  randomKey();
+        let newKey =  getRandomKey();
         this.state = {
             currentKey : newKey,
-            currentChord : randomChord(newKey),
+            currentChord : getRandomChordFromKey(newKey),
         }
         // End state
     }
@@ -30,14 +25,10 @@ class Sentence extends Component {
 
     // Method to advance to next sentence.
     next(){
-        // Initalize RKG.
-        // TODO: Question: How to initialize this in multi-component scope?
-        const RKG = new RandomKeyGenerator();
-
-        let newKey =  randomKey();
+        let newKey =  getRandomKey();
         this.setState({
             currentKey : newKey,
-            currentChord : randomChord(newKey),
+            currentChord : getRandomChordFromKey(newKey),
         });
     }
 

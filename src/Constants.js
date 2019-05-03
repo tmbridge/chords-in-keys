@@ -1,5 +1,3 @@
-import { randomChord } from "./classes/RandomKeyGenerator";
-
 // Export is a node thing but also a webpack thing... TODO: research export
 export const chordQualities = [
     {
@@ -70,7 +68,7 @@ export const nashvilleNumbers = {
 
 // Key definitions
 // TODO: How to make these constants?
-// TODO: Extract randomChord() function to a class method so it's not included in each key's object.
+// TODO: Extract getRandomChordFromKey() function to a class method so it's not included in each key's object.
 // TODO: Get NashvilleNumbers without hardcoding index.
 // TODO: Derive chordFullName this from baseNote and chordQuality
 // TODO: Derive chordAbbreviation from baseNote, chordQuality, and accidental
