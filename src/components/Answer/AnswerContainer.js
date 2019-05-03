@@ -5,8 +5,8 @@ import Sentence from "../Sentence/Sentence";
 
 class AnswerContainer extends Component {
 
-    // TODO: Make this object global so all components can use it?
-    // TODO: Understand static objects?
+    // TODO: Question: Make this object global so all components can use it?
+    // TODO: Question: Understand static objects?
     // Constructor.
     constructor(props) {
         super(props);
@@ -29,7 +29,9 @@ class AnswerContainer extends Component {
         const { allKeys } = this.state;
         return (
             <div>
+                {/*TODO: Set Button values to options associated with currently 'blanked out' Sentence component.*/}
                 {allKeys.map((key, index) => (
+                    /*TODO: Extract this button out to the Answer Component*/
                     <button value={key}>
                         { key }
                     </button>

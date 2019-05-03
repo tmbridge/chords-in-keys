@@ -85,7 +85,7 @@ export class RandomKeyGenerator {
         // TODO: Derive chordAbbreviation from baseNote, chordQuality, and accidental
         // Key of A Major
         this.A = {
-            // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
+            // TODO: Question: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
             chords: [
                 {  // A
                     nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
@@ -659,7 +659,7 @@ export class RandomKeyGenerator {
 
         // TODO: Add sharp/flat keys and minor keys.  Ideally, flesh out the chord generation workflow from line 103 first and use it to generate the keys with as little repetition as possible.
         this.majorKeys = {
-            // TODO: Build this object with a loop or map function.
+            // TODO: Question: Build this object with a loop or map function.
             // TODO: Filter this object by configuration settings.
             keys: {
                 A: this.A,
@@ -685,16 +685,18 @@ export class RandomKeyGenerator {
         return this.majorKeys;
     }
 
-    // TODO: write this method
+    // TODO: write/test this method
     getAllChords(keys = this.getAllMajorKeys()) {
         console.log(keys);
         return keys;
     }
 
+    // TODO: write/test this method
     getKeyByAbbreviation(abbreviatedName) {
         this.getAllMajorKeys().keys.chords.find(abbreviatedName);
     }
 
+    // TODO: write/test this method
     getRandomChord(quality) {
         let allKeys = {};
         if (quality == "major") {
@@ -704,6 +706,7 @@ export class RandomKeyGenerator {
         return allKeys.chords[objectKeys[objectKeys.length * Math.random() << 0]];
     }
 
+    // TODO: write/test this method
     getRandomChordFromKey(key) {
         let objectKeys = Object.keys(this.chords);
         return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
