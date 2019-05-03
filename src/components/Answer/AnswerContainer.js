@@ -16,7 +16,9 @@ class AnswerContainer extends Component {
         // State
         this.state = {
             allKeys :  Object.keys(RKG.majorKeys.keys),
-            allNashvilleRomans : RKG.getNashvilleNumbers('test'),
+            allNashvilleRomans : RKG.getAllNashvilleNumbers('roman'),
+            allChords: RKG.getAllChords(),
+            allChordsInCurrentKey: props.currentKey,
         }
         console.log(this.state.allNashvilleRomans);
         // End state

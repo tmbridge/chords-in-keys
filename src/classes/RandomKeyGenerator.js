@@ -77,8 +77,6 @@ export class RandomKeyGenerator {
             },*/
         };
 
-
-
         // Key definitions
         // TODO: How to make these constants?
         // TODO: Extract randomChord() function to a class method so it's not included in each key's object.
@@ -90,8 +88,8 @@ export class RandomKeyGenerator {
             // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
             chords: [
                 {  // A
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[0],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[0],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
                     chordAbbreviation: "A", // TODO: Derive this from baseNote, chordQuality, and accidental
                     chordFullName: "A major", // TODO: Derive this from baseNote and chordQuality
                     chordQuality: "major",
@@ -100,8 +98,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Bm
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[1],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[1],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
                     chordAbbreviation: "Bm",
                     chordFullName: "B minor",
                     chordQuality: "minor",
@@ -110,8 +108,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // C♯m
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[2],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[2],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
                     chordFullName: "C♯ minor",
                     chordAbbreviation: "C♯m",
                     chordQuality: "minor",
@@ -120,8 +118,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // D
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[3],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[3],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
                     chordFullName: "D major",
                     chordAbbreviation: "D",
                     chordQuality: "major",
@@ -130,8 +128,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // E
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[4],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[4],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
                     chordFullName: "E major",
                     chordAbbreviation: "E",
                     chordQuality: "major",
@@ -140,8 +138,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // F♯m
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[5],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[5],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
                     chordFullName: "F♯ minor",
                     chordAbbreviation: "F♯m",
                     chordQuality: "minor",
@@ -150,8 +148,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // G♯dim
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[6],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[6],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
                     chordFullName: "G♯ diminished",
                     chordAbbreviation: "G♯°",
                     chordQualityFull: "diminished",
@@ -172,8 +170,8 @@ export class RandomKeyGenerator {
             // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
             chords: [
                 {  // B
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[0],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[0],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
                     chordAbbreviation: "B",
                     chordFullName: "B major",
                     chordQuality: "major",
@@ -182,8 +180,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // C♯m
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[1],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[1],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
                     chordAbbreviation: "C♯m",
                     chordFullName: "C♯ minor",
                     chordQuality: "minor",
@@ -192,8 +190,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // D♯m
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[2],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[2],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
                     chordFullName: "D♯ minor",
                     chordAbbreviation: "D♯m",
                     chordQuality: "minor",
@@ -202,8 +200,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // E
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[3],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[3],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
                     chordFullName: "E major",
                     chordAbbreviation: "E",
                     chordQuality: "major",
@@ -212,8 +210,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // F♯
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[4],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[4],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
                     chordFullName: "F♯ major",
                     chordAbbreviation: "F♯",
                     chordQuality: "major",
@@ -222,8 +220,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // G♯m
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[5],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[5],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
                     chordFullName: "G♯ minor",
                     chordAbbreviation: "G♯m",
                     chordQuality: "minor",
@@ -232,8 +230,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // A♯dim
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[6],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[6],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
                     chordFullName: "A♯ diminished",
                     chordAbbreviation: "A♯°",
                     chordQualityFull: "diminished",
@@ -254,8 +252,8 @@ export class RandomKeyGenerator {
             // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
             chords: [
                 {  // C
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[0],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[0],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
                     chordAbbreviation: "C",
                     chordFullName: "C major",
                     chordQuality: "major",
@@ -264,8 +262,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // D
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[1],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[1],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
                     chordAbbreviation: "Dm",
                     chordFullName: "D minor",
                     chordQuality: "minor",
@@ -274,8 +272,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // E
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[2],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[2],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
                     chordFullName: "E minor",
                     chordAbbreviation: "C♯m",
                     chordQuality: "minor",
@@ -284,8 +282,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // F
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[3],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[3],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
                     chordFullName: "F major",
                     chordAbbreviation: "F",
                     chordQuality: "major",
@@ -294,8 +292,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // G
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[4],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[4],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
                     chordFullName: "G major",
                     chordAbbreviation: "G",
                     chordQuality: "major",
@@ -304,8 +302,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // A
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[5],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[5],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
                     chordFullName: "A minor",
                     chordAbbreviation: "Am",
                     chordQuality: "minor",
@@ -314,8 +312,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // B
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[6],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[6],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
                     chordFullName: "B diminished",
                     chordAbbreviation: "B°",
                     chordQualityFull: "diminished",
@@ -336,8 +334,8 @@ export class RandomKeyGenerator {
             // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
             chords: [
                 {  // D
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[0],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[0],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
                     chordAbbreviation: "D",
                     chordFullName: "D major",
                     chordQuality: "major",
@@ -346,8 +344,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Em
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[1],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[1],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
                     chordAbbreviation: "Em",
                     chordFullName: "E minor",
                     chordQuality: "minor",
@@ -356,8 +354,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // F♯m
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[2],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[2],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
                     chordFullName: "F♯ minor",
                     chordAbbreviation: "F♯m",
                     chordQuality: "minor",
@@ -366,8 +364,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // G
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[3],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[3],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
                     chordFullName: "G major",
                     chordAbbreviation: "G",
                     chordQuality: "major",
@@ -376,8 +374,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // A
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[4],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[4],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
                     chordFullName: "A major",
                     chordAbbreviation: "A",
                     chordQuality: "major",
@@ -386,8 +384,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Bm
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[5],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[5],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
                     chordFullName: "B minor",
                     chordAbbreviation: "Bm",
                     chordQuality: "minor",
@@ -396,8 +394,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // C♯dim
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[6],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[6],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
                     chordFullName: "C♯ diminished",
                     chordAbbreviation: "C♯°",
                     chordQualityFull: "diminished",
@@ -418,8 +416,8 @@ export class RandomKeyGenerator {
             // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
             chords: [
                 {  // E
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[0],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[0],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
                     chordAbbreviation: "E",
                     chordFullName: "E major",
                     chordQuality: "major",
@@ -428,8 +426,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // F♯m
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[1],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[1],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
                     chordAbbreviation: "F♯m",
                     chordFullName: "F♯ minor",
                     chordQuality: "minor",
@@ -438,8 +436,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // G♯m
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[2],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[2],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
                     chordFullName: "G♯ minor",
                     chordAbbreviation: "G♯m",
                     chordQuality: "minor",
@@ -448,8 +446,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // A
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[3],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[3],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
                     chordFullName: "A major",
                     chordAbbreviation: "A",
                     chordQuality: "major",
@@ -458,8 +456,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // B
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[4],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[4],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
                     chordFullName: "B major",
                     chordAbbreviation: "B",
                     chordQuality: "major",
@@ -468,8 +466,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // C♯m
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[5],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[5],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
                     chordFullName: "C minor",
                     chordAbbreviation: "Cm",
                     chordQuality: "minor",
@@ -478,8 +476,8 @@ export class RandomKeyGenerator {
                     accidental: "♯",
                 },
                 {  // D♯dim
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[6],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[6],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
                     chordFullName: "D♯ diminished",
                     chordAbbreviation: "D♯°",
                     chordQualityFull: "diminished",
@@ -500,8 +498,8 @@ export class RandomKeyGenerator {
             // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
             chords: [
                 {  // F
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[0],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[0],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
                     chordAbbreviation: "F",
                     chordFullName: "F major",
                     chordQuality: "major",
@@ -510,8 +508,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Gm
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[1],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[1],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
                     chordAbbreviation: "Gm",
                     chordFullName: "G minor",
                     chordQuality: "minor",
@@ -520,8 +518,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Am
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[2],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[2],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
                     chordFullName: "A minor",
                     chordAbbreviation: "Am",
                     chordQuality: "minor",
@@ -530,8 +528,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Bb
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[3],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[3],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
                     chordFullName: "Bb major",
                     chordAbbreviation: "B♭",
                     chordQuality: "major",
@@ -540,8 +538,8 @@ export class RandomKeyGenerator {
                     accidental: "♭",
                 },
                 {  // C
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[4],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[4],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
                     chordFullName: "C major",
                     chordAbbreviation: "C",
                     chordQuality: "major",
@@ -550,8 +548,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // D
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[5],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[5],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
                     chordFullName: "D minor",
                     chordAbbreviation: "Dm",
                     chordQuality: "minor",
@@ -560,8 +558,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Edim
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[6],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[6],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
                     chordFullName: "E♯ diminished",
                     chordAbbreviation: "E°",
                     chordQualityFull: "diminished",
@@ -582,8 +580,8 @@ export class RandomKeyGenerator {
             // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
             chords: [
                 {  // G
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[0],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[0],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
                     chordAbbreviation: "G",
                     chordFullName: "G major",
                     chordQuality: "major",
@@ -592,8 +590,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Am
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[1],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[1],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
                     chordAbbreviation: "Am",
                     chordFullName: "A minor",
                     chordQuality: "minor",
@@ -602,8 +600,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Bm
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[2],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[2],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
                     chordFullName: "B minor",
                     chordAbbreviation: "Bm",
                     chordQuality: "minor",
@@ -612,8 +610,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // C
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[3],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[3],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
                     chordFullName: "C major",
                     chordAbbreviation: "C",
                     chordQuality: "major",
@@ -622,8 +620,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // D
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[4],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[4],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
                     chordFullName: "D major",
                     chordAbbreviation: "D",
                     chordQuality: "major",
@@ -632,8 +630,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // Em
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[5],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[5],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
                     chordFullName: "E minor",
                     chordAbbreviation: "Em",
                     chordQuality: "minor",
@@ -642,8 +640,8 @@ export class RandomKeyGenerator {
                     accidental: "♮",
                 },
                 {  // F♯dim
-                    nashvilleRoman: this.getNashvilleNumbers('roman')[6],
-                    nashvilleArabic: this.getNashvilleNumbers('arabic')[6],
+                    nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
+                    nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
                     chordFullName: "F♯ diminished",
                     chordAbbreviation: "F♯°",
                     chordQualityFull: "diminished",
@@ -679,20 +677,22 @@ export class RandomKeyGenerator {
         };
     }
 
-    getNashvilleNumbers(type) {
-      //  if (type == 'arabic') {
-            return this.nashvilleNumbers.get(type);
-     //   else {
-      //      return this.nashvilleNumbers.get(type);
-      //  }
+    getAllNashvilleNumbers(type) {
+        return this.nashvilleNumbers.get(type);
     }
 
-    getMajorKeys() {
+    getAllMajorKeys() {
         return this.majorKeys;
     }
 
-    getKey(abbreviatedName) {
-        this.getMajorKeys().keys.chords.find(abbreviatedName);
+    // TODO: write this method
+    getAllChords(keys = this.getAllMajorKeys()) {
+        console.log(keys);
+        return keys;
+    }
+
+    getKeyByAbbreviation(abbreviatedName) {
+        this.getAllMajorKeys().keys.chords.find(abbreviatedName);
     }
 
     getRandomChord(quality) {
