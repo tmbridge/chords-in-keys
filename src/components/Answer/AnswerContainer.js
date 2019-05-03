@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {RandomKeyGenerator} from "../../classes/RandomKeyGenerator";
-import Sentence from "../Sentence/Sentence";
+
+// Constants
+import { majorKeys, nashvilleNumbers } from "../../Constants";
+import { getAllDistinctChords } from "../../RandomKeyGenerator";
 
 class AnswerContainer extends Component {
 
@@ -11,17 +13,13 @@ class AnswerContainer extends Component {
     constructor(props) {
         super(props);
 
-        // Initalize RKG.
-        const RKG = new RandomKeyGenerator();
-
         // State
         this.state = {
-            allKeys :  Object.keys(RKG.majorKeys.keys),
-            allNashvilleRomans : RKG.getAllNashvilleNumbers('roman'),
-            allChords: RKG.getAllChords(),
+            allKeys :  Object.keys(majorKeys.keys),
+            allNashvilleRomans : nashvilleNumbers.roman,
+            allChords: getAllDistinctChords(),
             allChordsInCurrentKey: props.currentKey,
         }
-        console.log(this.state.allNashvilleRomans);
         // End state
     }
     // End Constructor
