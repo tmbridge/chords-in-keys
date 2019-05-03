@@ -4,7 +4,8 @@ import SentenceChord from "./SentenceChord.js";
 import SentenceNashvilleNumber from "./SentenceNashvilleNumber.js";
 import SentenceKey from "./SentenceKey.js";
 
-// Helpers
+// Constants
+import { majorKeys } from "../../Constants"; // equal to var chordQualities = [].  Can use in class with just 'chordQualities'"
 import { RandomKeyGenerator } from "../../classes/RandomKeyGenerator.js";
 
 class Sentence extends Component {
@@ -18,7 +19,7 @@ class Sentence extends Component {
         const RKG = new RandomKeyGenerator();
 
         // State
-        let newKey =  RKG.majorKeys.randomKey();
+        let newKey =  majorKeys.randomKey();
         this.state = {
             currentKey : newKey,
             currentChord : newKey.randomChord(),
@@ -54,7 +55,7 @@ class Sentence extends Component {
                        TODO: Question: Or should I move next() to AnswerContainer.js, too, and change the state of this component somehow?
                      */}
                     <button onClick={() => this.next()} value="skip">Skip</button>
-                    <Button onSomething={this.next}></Button>
+                    {/*<Button onSomething={this.next}></Button>*/}
                 </div>
         );
     }

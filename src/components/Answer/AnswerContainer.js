@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import {RandomKeyGenerator} from "../../classes/RandomKeyGenerator";
 import Sentence from "../Sentence/Sentence";
 
+// Constants
+import { majorKeys, nashvilleNumbers } from "../../Constants";
+
 class AnswerContainer extends Component {
 
     // TODO: Question: Make this object global so all components can use it?
@@ -16,12 +19,11 @@ class AnswerContainer extends Component {
 
         // State
         this.state = {
-            allKeys :  Object.keys(RKG.majorKeys.keys),
-            allNashvilleRomans : RKG.getAllNashvilleNumbers('roman'),
+            allKeys :  Object.keys(majorKeys.keys),
+            allNashvilleRomans : nashvilleNumbers.roman,
             allChords: RKG.getAllChords(),
             allChordsInCurrentKey: props.currentKey,
         }
-        console.log(this.state.allNashvilleRomans);
         // End state
     }
     // End Constructor

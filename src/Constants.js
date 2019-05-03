@@ -78,7 +78,7 @@ export const A = {
     chords: [
         {  // A
             nashvilleRoman: nashvilleNumbers.roman[0],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
+            nashvilleArabic: nashvilleNumbers.arabic[0],
             chordAbbreviation: "A", // TODO: Derive this from baseNote, chordQuality, and accidental
             chordFullName: "A major", // TODO: Derive this from baseNote and chordQuality
             chordQuality: "major",
@@ -87,8 +87,8 @@ export const A = {
             accidental: "♮",
         },
         {  // Bm
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
+            nashvilleRoman: nashvilleNumbers.roman[1],
+            nashvilleArabic: nashvilleNumbers.arabic[1],
             chordAbbreviation: "Bm",
             chordFullName: "B minor",
             chordQuality: "minor",
@@ -97,8 +97,8 @@ export const A = {
             accidental: "♮",
         },
         {  // C♯m
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
+            nashvilleRoman: nashvilleNumbers.roman[2],
+            nashvilleArabic: nashvilleNumbers.arabic[2],
             chordFullName: "C♯ minor",
             chordAbbreviation: "C♯m",
             chordQuality: "minor",
@@ -107,8 +107,8 @@ export const A = {
             accidental: "♯",
         },
         {  // D
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
+            nashvilleRoman: nashvilleNumbers.roman[3],
+            nashvilleArabic: nashvilleNumbers.arabic[3],
             chordFullName: "D major",
             chordAbbreviation: "D",
             chordQuality: "major",
@@ -117,8 +117,8 @@ export const A = {
             accidental: "♮",
         },
         {  // E
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
+            nashvilleRoman: nashvilleNumbers.roman[4],
+            nashvilleArabic: nashvilleNumbers.arabic[4],
             chordFullName: "E major",
             chordAbbreviation: "E",
             chordQuality: "major",
@@ -127,8 +127,8 @@ export const A = {
             accidental: "♮",
         },
         {  // F♯m
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
+            nashvilleRoman: nashvilleNumbers.roman[5],
+            nashvilleArabic: nashvilleNumbers.arabic[5],
             chordFullName: "F♯ minor",
             chordAbbreviation: "F♯m",
             chordQuality: "minor",
@@ -137,8 +137,8 @@ export const A = {
             accidental: "♯",
         },
         {  // G♯dim
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
+            nashvilleRoman: nashvilleNumbers.roman[6],
+            nashvilleArabic: nashvilleNumbers.arabic[6],
             chordFullName: "G♯ diminished",
             chordAbbreviation: "G♯°",
             chordQualityFull: "diminished",
@@ -159,8 +159,8 @@ export const B = {
     // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
     chords: [
         {  // B
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
+            nashvilleRoman: nashvilleNumbers.roman[0],
+            nashvilleArabic: nashvilleNumbers.arabic[0],
             chordAbbreviation: "B",
             chordFullName: "B major",
             chordQuality: "major",
@@ -169,8 +169,8 @@ export const B = {
             accidental: "♮",
         },
         {  // C♯m
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
+            nashvilleRoman: nashvilleNumbers.roman[1],
+            nashvilleArabic: nashvilleNumbers.arabic[1],
             chordAbbreviation: "C♯m",
             chordFullName: "C♯ minor",
             chordQuality: "minor",
@@ -179,8 +179,8 @@ export const B = {
             accidental: "♯",
         },
         {  // D♯m
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
+            nashvilleRoman: nashvilleNumbers.roman[2],
+            nashvilleArabic: nashvilleNumbers.arabic[2],
             chordFullName: "D♯ minor",
             chordAbbreviation: "D♯m",
             chordQuality: "minor",
@@ -189,8 +189,8 @@ export const B = {
             accidental: "♯",
         },
         {  // E
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
+            nashvilleRoman: nashvilleNumbers.roman[3],
+            nashvilleArabic: nashvilleNumbers.arabic[3],
             chordFullName: "E major",
             chordAbbreviation: "E",
             chordQuality: "major",
@@ -199,8 +199,8 @@ export const B = {
             accidental: "♮",
         },
         {  // F♯
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
+            nashvilleRoman: nashvilleNumbers.roman[4],
+            nashvilleArabic: nashvilleNumbers.arabic[4],
             chordFullName: "F♯ major",
             chordAbbreviation: "F♯",
             chordQuality: "major",
@@ -209,8 +209,8 @@ export const B = {
             accidental: "♯",
         },
         {  // G♯m
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
+            nashvilleRoman: nashvilleNumbers.roman[5],
+            nashvilleArabic: nashvilleNumbers.arabic[5],
             chordFullName: "G♯ minor",
             chordAbbreviation: "G♯m",
             chordQuality: "minor",
@@ -219,8 +219,8 @@ export const B = {
             accidental: "♯",
         },
         {  // A♯dim
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
+            nashvilleRoman: nashvilleNumbers.roman[6],
+            nashvilleArabic: nashvilleNumbers.arabic[6],
             chordFullName: "A♯ diminished",
             chordAbbreviation: "A♯°",
             chordQualityFull: "diminished",
@@ -241,8 +241,8 @@ export const C = {
     // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
     chords: [
         {  // C
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
+            nashvilleRoman: nashvilleNumbers.roman[0],
+            nashvilleArabic: nashvilleNumbers.arabic[0],
             chordAbbreviation: "C",
             chordFullName: "C major",
             chordQuality: "major",
@@ -251,8 +251,8 @@ export const C = {
             accidental: "♮",
         },
         {  // D
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
+            nashvilleRoman: nashvilleNumbers.roman[1],
+            nashvilleArabic: nashvilleNumbers.arabic[1],
             chordAbbreviation: "Dm",
             chordFullName: "D minor",
             chordQuality: "minor",
@@ -261,8 +261,8 @@ export const C = {
             accidental: "♮",
         },
         {  // E
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
+            nashvilleRoman: nashvilleNumbers.roman[2],
+            nashvilleArabic: nashvilleNumbers.arabic[2],
             chordFullName: "E minor",
             chordAbbreviation: "C♯m",
             chordQuality: "minor",
@@ -271,8 +271,8 @@ export const C = {
             accidental: "♮",
         },
         {  // F
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
+            nashvilleRoman: nashvilleNumbers.roman[3],
+            nashvilleArabic: nashvilleNumbers.arabic[3],
             chordFullName: "F major",
             chordAbbreviation: "F",
             chordQuality: "major",
@@ -281,8 +281,8 @@ export const C = {
             accidental: "♮",
         },
         {  // G
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
+            nashvilleRoman: nashvilleNumbers.roman[4],
+            nashvilleArabic: nashvilleNumbers.arabic[4],
             chordFullName: "G major",
             chordAbbreviation: "G",
             chordQuality: "major",
@@ -291,8 +291,8 @@ export const C = {
             accidental: "♮",
         },
         {  // A
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
+            nashvilleRoman: nashvilleNumbers.roman[5],
+            nashvilleArabic: nashvilleNumbers.arabic[5],
             chordFullName: "A minor",
             chordAbbreviation: "Am",
             chordQuality: "minor",
@@ -301,8 +301,8 @@ export const C = {
             accidental: "♮",
         },
         {  // B
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
+            nashvilleRoman: nashvilleNumbers.roman[6],
+            nashvilleArabic: nashvilleNumbers.arabic[6],
             chordFullName: "B diminished",
             chordAbbreviation: "B°",
             chordQualityFull: "diminished",
@@ -323,8 +323,8 @@ export const E = {
     // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
     chords: [
         {  // E
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
+            nashvilleRoman: nashvilleNumbers.roman[0],
+            nashvilleArabic: nashvilleNumbers.arabic[0],
             chordAbbreviation: "E",
             chordFullName: "E major",
             chordQuality: "major",
@@ -333,8 +333,8 @@ export const E = {
             accidental: "♮",
         },
         {  // F♯m
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
+            nashvilleRoman: nashvilleNumbers.roman[1],
+            nashvilleArabic: nashvilleNumbers.arabic[1],
             chordAbbreviation: "F♯m",
             chordFullName: "F♯ minor",
             chordQuality: "minor",
@@ -343,8 +343,8 @@ export const E = {
             accidental: "♯",
         },
         {  // G♯m
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
+            nashvilleRoman: nashvilleNumbers.roman[2],
+            nashvilleArabic: nashvilleNumbers.arabic[2],
             chordFullName: "G♯ minor",
             chordAbbreviation: "G♯m",
             chordQuality: "minor",
@@ -353,8 +353,8 @@ export const E = {
             accidental: "♯",
         },
         {  // A
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
+            nashvilleRoman: nashvilleNumbers.roman[3],
+            nashvilleArabic: nashvilleNumbers.arabic[3],
             chordFullName: "A major",
             chordAbbreviation: "A",
             chordQuality: "major",
@@ -363,8 +363,8 @@ export const E = {
             accidental: "♮",
         },
         {  // B
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
+            nashvilleRoman: nashvilleNumbers.roman[4],
+            nashvilleArabic: nashvilleNumbers.arabic[4],
             chordFullName: "B major",
             chordAbbreviation: "B",
             chordQuality: "major",
@@ -373,8 +373,8 @@ export const E = {
             accidental: "♮",
         },
         {  // C♯m
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
+            nashvilleRoman: nashvilleNumbers.roman[5],
+            nashvilleArabic: nashvilleNumbers.arabic[5],
             chordFullName: "C minor",
             chordAbbreviation: "Cm",
             chordQuality: "minor",
@@ -383,8 +383,8 @@ export const E = {
             accidental: "♯",
         },
         {  // D♯dim
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
+            nashvilleRoman: nashvilleNumbers.roman[6],
+            nashvilleArabic: nashvilleNumbers.arabic[6],
             chordFullName: "D♯ diminished",
             chordAbbreviation: "D♯°",
             chordQualityFull: "diminished",
@@ -405,8 +405,8 @@ export const D = {
     // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
     chords: [
         {  // D
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
+            nashvilleRoman: nashvilleNumbers.roman[0],
+            nashvilleArabic: nashvilleNumbers.arabic[0],
             chordAbbreviation: "D",
             chordFullName: "D major",
             chordQuality: "major",
@@ -415,8 +415,8 @@ export const D = {
             accidental: "♮",
         },
         {  // Em
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
+            nashvilleRoman: nashvilleNumbers.roman[1],
+            nashvilleArabic: nashvilleNumbers.arabic[1],
             chordAbbreviation: "Em",
             chordFullName: "E minor",
             chordQuality: "minor",
@@ -425,8 +425,8 @@ export const D = {
             accidental: "♮",
         },
         {  // F♯m
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
+            nashvilleRoman: nashvilleNumbers.roman[2],
+            nashvilleArabic: nashvilleNumbers.arabic[2],
             chordFullName: "F♯ minor",
             chordAbbreviation: "F♯m",
             chordQuality: "minor",
@@ -435,8 +435,8 @@ export const D = {
             accidental: "♯",
         },
         {  // G
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
+            nashvilleRoman: nashvilleNumbers.roman[3],
+            nashvilleArabic: nashvilleNumbers.arabic[3],
             chordFullName: "G major",
             chordAbbreviation: "G",
             chordQuality: "major",
@@ -445,8 +445,8 @@ export const D = {
             accidental: "♮",
         },
         {  // A
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
+            nashvilleRoman: nashvilleNumbers.roman[4],
+            nashvilleArabic: nashvilleNumbers.arabic[4],
             chordFullName: "A major",
             chordAbbreviation: "A",
             chordQuality: "major",
@@ -455,8 +455,8 @@ export const D = {
             accidental: "♮",
         },
         {  // Bm
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
+            nashvilleRoman: nashvilleNumbers.roman[5],
+            nashvilleArabic: nashvilleNumbers.arabic[5],
             chordFullName: "B minor",
             chordAbbreviation: "Bm",
             chordQuality: "minor",
@@ -465,8 +465,8 @@ export const D = {
             accidental: "♮",
         },
         {  // C♯dim
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
+            nashvilleRoman: nashvilleNumbers.roman[6],
+            nashvilleArabic: nashvilleNumbers.arabic[6],
             chordFullName: "C♯ diminished",
             chordAbbreviation: "C♯°",
             chordQualityFull: "diminished",
@@ -487,8 +487,8 @@ export const F = {
     // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
     chords: [
         {  // F
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
+            nashvilleRoman: nashvilleNumbers.roman[0],
+            nashvilleArabic: nashvilleNumbers.arabic[0],
             chordAbbreviation: "F",
             chordFullName: "F major",
             chordQuality: "major",
@@ -497,8 +497,8 @@ export const F = {
             accidental: "♮",
         },
         {  // Gm
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
+            nashvilleRoman: nashvilleNumbers.roman[1],
+            nashvilleArabic: nashvilleNumbers.arabic[1],
             chordAbbreviation: "Gm",
             chordFullName: "G minor",
             chordQuality: "minor",
@@ -507,8 +507,8 @@ export const F = {
             accidental: "♮",
         },
         {  // Am
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
+            nashvilleRoman: nashvilleNumbers.roman[2],
+            nashvilleArabic: nashvilleNumbers.arabic[2],
             chordFullName: "A minor",
             chordAbbreviation: "Am",
             chordQuality: "minor",
@@ -517,8 +517,8 @@ export const F = {
             accidental: "♮",
         },
         {  // Bb
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
+            nashvilleRoman: nashvilleNumbers.roman[3],
+            nashvilleArabic: nashvilleNumbers.arabic[3],
             chordFullName: "Bb major",
             chordAbbreviation: "B♭",
             chordQuality: "major",
@@ -527,8 +527,8 @@ export const F = {
             accidental: "♭",
         },
         {  // C
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
+            nashvilleRoman: nashvilleNumbers.roman[4],
+            nashvilleArabic: nashvilleNumbers.arabic[4],
             chordFullName: "C major",
             chordAbbreviation: "C",
             chordQuality: "major",
@@ -537,8 +537,8 @@ export const F = {
             accidental: "♮",
         },
         {  // D
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
+            nashvilleRoman: nashvilleNumbers.roman[5],
+            nashvilleArabic: nashvilleNumbers.arabic[5],
             chordFullName: "D minor",
             chordAbbreviation: "Dm",
             chordQuality: "minor",
@@ -547,8 +547,8 @@ export const F = {
             accidental: "♮",
         },
         {  // Edim
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
+            nashvilleRoman: nashvilleNumbers.roman[6],
+            nashvilleArabic: nashvilleNumbers.arabic[6],
             chordFullName: "E♯ diminished",
             chordAbbreviation: "E°",
             chordQualityFull: "diminished",
@@ -569,8 +569,8 @@ export const G = {
     // TODO: use the index of a chord within the chords array to get nashvillenumber instead of hardcoding index.
     chords: [
         {  // G
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[0],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[0],
+            nashvilleRoman: nashvilleNumbers.roman[0],
+            nashvilleArabic: nashvilleNumbers.arabic[0],
             chordAbbreviation: "G",
             chordFullName: "G major",
             chordQuality: "major",
@@ -579,8 +579,8 @@ export const G = {
             accidental: "♮",
         },
         {  // Am
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[1],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[1],
+            nashvilleRoman: nashvilleNumbers.roman[1],
+            nashvilleArabic: nashvilleNumbers.arabic[1],
             chordAbbreviation: "Am",
             chordFullName: "A minor",
             chordQuality: "minor",
@@ -589,8 +589,8 @@ export const G = {
             accidental: "♮",
         },
         {  // Bm
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[2],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[2],
+            nashvilleRoman: nashvilleNumbers.roman[2],
+            nashvilleArabic: nashvilleNumbers.arabic[2],
             chordFullName: "B minor",
             chordAbbreviation: "Bm",
             chordQuality: "minor",
@@ -599,8 +599,8 @@ export const G = {
             accidental: "♮",
         },
         {  // C
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[3],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[3],
+            nashvilleRoman: nashvilleNumbers.roman[3],
+            nashvilleArabic: nashvilleNumbers.arabic[3],
             chordFullName: "C major",
             chordAbbreviation: "C",
             chordQuality: "major",
@@ -609,8 +609,8 @@ export const G = {
             accidental: "♮",
         },
         {  // D
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[4],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[4],
+            nashvilleRoman: nashvilleNumbers.roman[4],
+            nashvilleArabic: nashvilleNumbers.arabic[4],
             chordFullName: "D major",
             chordAbbreviation: "D",
             chordQuality: "major",
@@ -619,8 +619,8 @@ export const G = {
             accidental: "♮",
         },
         {  // Em
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[5],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[5],
+            nashvilleRoman: nashvilleNumbers.roman[5],
+            nashvilleArabic: nashvilleNumbers.arabic[5],
             chordFullName: "E minor",
             chordAbbreviation: "Em",
             chordQuality: "minor",
@@ -629,8 +629,8 @@ export const G = {
             accidental: "♮",
         },
         {  // F♯dim
-            nashvilleRoman: this.getAllNashvilleNumbers('roman')[6],
-            nashvilleArabic: this.getAllNashvilleNumbers('arabic')[6],
+            nashvilleRoman: nashvilleNumbers.roman[6],
+            nashvilleArabic: nashvilleNumbers.arabic[6],
             chordFullName: "F♯ diminished",
             chordAbbreviation: "F♯°",
             chordQualityFull: "diminished",
@@ -652,13 +652,13 @@ export const majorKeys = {
     // TODO: Question: Build this object with a loop or map function.
     // TODO: Filter this object by configuration settings.
     keys: {
-        A: this.A,
-        B: this.B,
-        C: this.C,
-        D: this.D,
-        E: this.E,
-        F: this.F,
-        G: this.G,
+        A: A,
+        B: B,
+        C: C,
+        D: D,
+        E: E,
+        F: F,
+        G: G,
     },
     randomKey: function () {
         let objectKeys = Object.keys(this.keys);
