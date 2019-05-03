@@ -44,7 +44,7 @@ class Sentence extends Component {
         let { currentKey } = this.state;
         let { currentChord } = this.state;
         return (
-            // TODO: Question: Why are divs needed here?  Get an error otherwise.
+            // TODO: Question: Why are divs needed here?  Get an error otherwise.button
                 <div>
                     {/*TODO: Randomly 'blank out' one of the three of these components and set Answer values to associated options.*/}
                     <SentenceChord value={currentChord.chordAbbreviation} /> is the <SentenceNashvilleNumber value={currentChord.nashvilleRoman} /> in the key of <SentenceKey value={currentKey.chords[0].chordAbbreviation} />
@@ -54,6 +54,7 @@ class Sentence extends Component {
                        TODO: Question: Or should I move next() to AnswerContainer.js, too, and change the state of this component somehow?
                      */}
                     <button onClick={() => this.next()} value="skip">Skip</button>
+                    <Button onSomething={this.next}></Button>
                 </div>
         );
     }

@@ -7,14 +7,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className={"App-header"}>
+      <header className="App-header">
           <SentenceContainer/>
-
       </header>
-        {/*TODO: Question: How do these App-{tag} classes work?*/}
-        <body className="App-body">
-            <ConfigurationContainer/>
-        </body>
+        <ConfigurationContainer/>
     </div>
   );
 }
