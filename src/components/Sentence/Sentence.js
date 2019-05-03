@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SentenceChord from "./SentenceChord.js";
-import SentenceRomanNumeral from "./SentenceRomanNumeral.js";
+import SentenceNashvilleNumber from "./SentenceNashvilleNumber.js";
 import SentenceKey from "./SentenceKey.js";
 
 // Helpers
@@ -47,7 +47,7 @@ class Sentence extends Component {
             // TODO: Question: Why are divs needed here?  Get an error otherwise.
                 <div>
                     {/*TODO: Randomly 'blank out' one of the three of these components and set Answer values to associated options.*/}
-                    <SentenceChord value={currentChord.chordAbbreviation} /> is the <SentenceRomanNumeral value={currentChord.nashvilleRoman} /> in the key of <SentenceKey value={currentKey.chords[0].chordAbbreviation} />
+                    <SentenceChord value={currentChord.chordAbbreviation} /> is the <SentenceNashvilleNumber value={currentChord.nashvilleRoman} /> in the key of <SentenceKey value={currentKey.chords[0].chordAbbreviation} />
                     <br/>
                     {/*
                        TODO: Question: How can I move this button to AnswerContainer.js and still use next() from this component?
