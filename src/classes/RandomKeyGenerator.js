@@ -712,5 +712,5 @@ export class RandomKeyGenerator {
         return this.chords[objectKeys[objectKeys.length * Math.random() << 0]];
     }
 
-    // TODO: write a function that will replace unicode accidental characters (♭,♯,♮) with ASCII characters to use in systems unable to parse unicode?
+    // TODO: write a function that will replace unicode accidental characters ('♭','♯','♮') with ASCII characters ('b', '#', '') to use in systems unable to parse unicode?
 }
