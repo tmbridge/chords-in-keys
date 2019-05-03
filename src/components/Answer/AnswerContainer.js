@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
+import Answer from "./Answer";
 import ReactDOM from 'react-dom';
 
 // Constants
 import { majorKeys, nashvilleNumbers } from "../../Constants";
-import { getAllDistinctChords } from "../../RandomKeyGenerator";
+import {getAllDistinctChords, getRandomChordFromKey} from "../../RandomKeyGenerator";
 
 class AnswerContainer extends Component {
-
-    // TODO: Question: Make this object global so all components can use it?
-    // TODO: Question: Understand static objects?
     // Constructor.
     constructor(props) {
         super(props);
@@ -23,6 +21,29 @@ class AnswerContainer extends Component {
         // End state
     }
     // End Constructor
+
+    checkGuess(guess) {
+        console.log("checkGuess:");
+        console.log(guess);
+        // Get which type of question this is: Key, Number, or Chord.
+        let questionType = 'key'; // Get this from Sentence.
+        // Get the current X of the question type (correctAnswer).
+        let correctAnswer = 'A';  // Get this from state using a switch statement on questionType.
+        // Compare guess to X.
+        // Return true or false accordingly.
+        // (Find a cleaner way to do this.  Perhaps with an additional function.
+        if (guess == correctAnswer) {
+            this.setState({
+                guessResult: 1,
+            });
+        }
+        else {
+            this.setState({
+                guessResult: 0,
+            });
+        }
+    }
+
     render() {
         const { allKeys } = this.state;
         return (
@@ -30,17 +51,14 @@ class AnswerContainer extends Component {
                 {/*TODO: Set Button values to options associated with currently 'blanked out' Sentence component.*/}
                 {allKeys.map((key, index) => (
                     /*TODO: Extract this button out to the Answer Component*/
-                    <button value={key}>
-                        { key }
-                    </button>
+                    <Answer onGuess={(guessToCheck) => this.checkGuess(guessToCheck)} value={key} />
                 ))}
                 <br/>
-                {/*TODO: Question: How to use sibling Sentence component here.
-                <button onClick={() =>  Sentence.next()} value="skip">Skip</button>*/}
+                <div className="answer-container">
+                    <button onClick={this.props.onSkipClicked}>skip</button>
+                </div>
             </div>
         );
     }
 }
-
-// TODO: Question: Why is export used?
 export default AnswerContainer;
