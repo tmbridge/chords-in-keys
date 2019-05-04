@@ -10,6 +10,11 @@ function App() {
       <header className="App-header">
           <SentenceContainer/>
       </header>
+        <div>
+            TODO:
+            <li>- SHow guess value in setence with green or red correct/incorrect</li>
+                <li>- settings/config</li>
+        </div>
         <ConfigurationContainer/>
     </div>
   );

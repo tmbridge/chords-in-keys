@@ -13,9 +13,10 @@ class VerdictContainer extends Component {
     }
 
     render() {
+        let { value } = this.props;
         return (
             <div>
-            Guess Status: {this.props.value}
+            Guess Status: {((value == 1) ? "Correct" : "Incorrect" )}
             </div>
         );
     }

@@ -11,6 +11,7 @@ class ConfigurationContainer extends Component {
                 Here will be configuration settings <br/>
                 (e.g. <ul>
                 <li>filter randomizer for specific key qualities,</li>
+                <li>filter randomizer for specific key accidentals,</li>
                 <li>filter randomizer for specfic keys,</li>
                 <li>choose which of the three variables (Key, Number, Chord) get randomly 'blanked',</li>
                 <li>Roman or Arabic Numerals,</li>

@@ -9,13 +9,12 @@ export const getRandomChordFromKey = (sourceKey) => {
     return sourceKey.chords[random(length)];
 }
 
-export const getRandomKey = () => {
+export const getRandomKey = (filter) => {
     let objectKeys = Object.keys(currentKeys);
     let length = objectKeys.length;
     return currentKeys[objectKeys[random(length)]];
 }
 
-// TODO: write/test this method
 export const getAllDistinctChords = (inKeys=currentKeys) => {
     let allChords = [];
     for (let key of Object.keys(inKeys)) {
