@@ -15,6 +15,7 @@ class ConfigurationContainer extends Component {
                 <li>choose which of the three variables (Key, Number, Chord) get randomly 'blanked',</li>
                 <li>Roman or Arabic Numerals,</li>
                 <li>time allowed per sentence,</li>
+                <li>Number of attempts before failure</li>
                 <li>etc.</li>
                 </ul>
             </div>

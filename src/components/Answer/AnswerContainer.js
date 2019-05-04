@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Answer from "./Answer";
+import VerdictContainer from "../Verdict/VerdictContainer"
 
 // Constants
 import {currentKeys, keyGroups, nashvilleNumbers } from "../../Constants";
@@ -11,6 +12,7 @@ class AnswerContainer extends Component {
         derivedCurrentQuestion: '',
         derivedCurrentKey: '',
         derivedCurrentChord: '',
+        guessResult: "N/A",
     }
 
 
@@ -74,14 +76,18 @@ class AnswerContainer extends Component {
         let currentPossibleAnswers = this.getCurrentPossibleAnswers();
         return (
             <div>
+                <div className="answer-container">
                 {/*TODO: Set Button values to options associated with currently 'blanked out' Sentence component.*/}
                 {currentPossibleAnswers.map((key, index) => (
                     /*TODO: Extract this button out to the Answer Component*/
                     <Answer onGuess={(guessToCheck) => this.checkGuess(guessToCheck)} value={key} />
                 ))}
-                <br/>
-                <div className="answer-container">
-                    <button onClick={this.props.onSkipClicked}>skip</button>
+                </div>
+                <div className="skip-container">
+                    <button onClick={this.props.onSkipClicked}>Next</button>
+                </div>
+                <div className="verdict-container">
+                    <VerdictContainer value={this.state.guessResult}/>
                 </div>
             </div>
         );
