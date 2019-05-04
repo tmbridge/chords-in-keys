@@ -2,86 +2,86 @@
 export const chordQualities = {
     major: {
         fullName: "major",
-        abbreviation: "",
-        symbol: "",
+        textAbbreviation: "",
+        symbolAbbreviation: "",
     },
     minor: {
         fullName: "minor",
-        abbreviation:
+        textAbbreviation:
             "m",
-        symbol:
+        symbolAbbreviation:
             "-"
     }
     ,
     7: {
         fullName: "Dominant 7",
-        abbreviation:
+        textAbbreviation:
             "7",
-        symbol:
+        symbolAbbreviation:
             "^7"
     }
     ,
     maj7: {
         fullName: "Major 7",
-        abbreviation:
+        textAbbreviation:
             "maj7",
-        symbol:
+        symbolAbbreviation:
             "Δ",
     }
     ,
     dim: {
         fullName: "Diminished",
-        abbreviation:
-            "dim",
-        symbol:
+        textAbbreviation:
+            "°", //"dim",
+        symbolAbbreviation:
             "°",
     }
     ,
     dim7: {
         fullName: "Diminished 7th",
-        abbreviation:
+        textAbbreviation:
             "dim7",
-        symbol:
+        symbolAbbreviation:
             "°^7",
     }
     ,
     dimMaj7: {
         fullName: "Diminished Major 7th",
-        abbreviation:
+        textAbbreviation:
             "dimMaj7",
-        symbol:
+        symbolAbbreviation:
             "°M7",
     }
     ,
     aug5: {
         fullName: "Augmented 5th",
-        abbreviation:
+        textAbbreviation:
             "aug5",
-        symbol:
+        symbolAbbreviation:
             "^5",
     }
     ,
     halfDim7: {
         fullName: "Half Diminished 7th",
-        abbreviation:
+        textAbbreviation:
             "halfDim7",
-        symbol:
+        symbolAbbreviation:
             "ø",
     }
     ,
     augMin7: {
         fullName: "Augmented Minor 7th",
-        abbreviation:
+        textAbbreviation:
             "augMin7",
-        symbol:
+        symbolAbbreviation:
             "+^7",
     }
     ,
     augMaj7: {
         fullName: "Augmented Major 7th",
-        abbreviation:
+        textAbbreviation:
             "augMaj7",
-        symbol:
+        symbolAbbreviation:
             "+Δ",
     }
 };
@@ -209,16 +209,17 @@ export const buildKeys = (keyQuality) => {
                 nashvilleRoman: nashvilleNumbers.roman[noteInterval],
                 nashvilleArabic: nashvilleNumbers.arabic[noteInterval],
                 chordFullName: noteString + " " + noteQuality.fullName,
-                chordAbbreviation: noteString + noteQuality.symbol,
+                chordAbbreviation: noteString + noteQuality.textAbbreviation,
                 chordQualityFull: noteQuality.fullName,
-                chordQualityAbbreviation: noteQuality.abbreviation,
+                chordQualityAbbreviation: noteQuality.textAbbreviation,
                 baseNote: noteString,
                 accidental: getAccidentalFromNoteString(noteString),
             };
             chords.push(chord);
         }
         allKeys[keyName] = {
-            chords: chords
+            keyName: chords[0].chordAbbreviation,
+            chords: chords,
         };
     }
     return allKeys;
@@ -228,8 +229,8 @@ export const majorKeys = buildKeys('major');
 
 export const minorKeys = buildKeys('minor');
 
-// TODO: Use config to determine which source objects are used here.
-export const getCurrentKeys = (keyQualityConfigSettings=['major','minor']) => {
+// TODO: Use config to determine which source objects are used in parameter.
+export const getCurrentKeys = (keyQualityConfigSettings=[majorKeys,minorKeys]) => {
     let currentKeys = {};
     for (let selectedKeyQuality of keyQualityConfigSettings) {
         currentKeys = Object.assign(currentKeys, selectedKeyQuality);

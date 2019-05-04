@@ -3,7 +3,7 @@ import Answer from "./Answer";
 import ReactDOM from 'react-dom';
 
 // Constants
-import { majorKeys, nashvilleNumbers } from "../../Constants";
+import {currentKeys, majorKeys, nashvilleNumbers } from "../../Constants";
 import {getAllDistinctChords, getRandomChordFromKey} from "../../RandomKeyGenerator";
 
 class AnswerContainer extends Component {
@@ -13,7 +13,7 @@ class AnswerContainer extends Component {
 
         // State
         this.state = {
-            allKeys :  Object.keys(majorKeys),
+            allKeys :  Object.keys(currentKeys),
             allNashvilleRomans : nashvilleNumbers.roman,
             allChords: getAllDistinctChords(),
             allChordsInCurrentKey: props.currentKey,

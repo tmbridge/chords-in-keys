@@ -1,4 +1,4 @@
-import { majorKeys } from "./Constants"; // equal to var chordQualities = [].  Can use in class with just 'chordQualities'"
+import { currentKeys, majorKeys, minorKeys } from "./Constants"; // equal to var chordQualities = [].  Can use in class with just 'chordQualities'"
 
 export const random = (ceiling, floor=0) => {
     return Math.floor(Math.random() * ceiling);
@@ -11,20 +11,20 @@ export const getRandomChordFromKey = (sourceKey) => {
 }
 
 export const getRandomKey = () => {
-    console.log(majorKeys);
-    let objectKeys = Object.keys(majorKeys);
+    console.log(currentKeys);
+    let objectKeys = Object.keys(currentKeys);
     let length = objectKeys.length;
-    return majorKeys[objectKeys[random(length)]];
+    return currentKeys[objectKeys[random(length)]];
 }
 
 // TODO: write/test this method
-export const getAllDistinctChords = (inKeys=majorKeys) => {
+export const getAllDistinctChords = (inKeys=currentKeys) => {
     return inKeys;
 }
 
 // TODO: write/test this method
 export const getKeyByAbbreviation = (abbreviatedName) => {
-    majorKeys.chords.find(abbreviatedName);
+    currentKeys.chords.find(abbreviatedName);
 }
 
 // TODO: write/test this method

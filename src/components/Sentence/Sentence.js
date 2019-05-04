@@ -39,7 +39,7 @@ class Sentence extends Component {
         return (
                 <div>
                     {/*TODO: Randomly 'blank out' one of the three of these components and set Answer values to associated options.*/}
-                    <SentenceChord value={currentChord.chordAbbreviation} /> is the <SentenceNashvilleNumber value={currentChord.nashvilleRoman} /> in the key of <SentenceKey value={currentKey.chords[0].chordAbbreviation} />
+                    <SentenceChord value={currentChord.chordAbbreviation} /> is the <SentenceNashvilleNumber value={currentChord.nashvilleRoman} /> in the key of <SentenceKey value={currentKey.keyName} />
                     <br/>
                     <AnswerContainer onSkipClicked={() => this.next()}/>
                 </div>
