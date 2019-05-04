@@ -17,7 +17,6 @@ export const getRandomKey = () => {
 
 // TODO: write/test this method
 export const getAllDistinctChords = (inKeys=currentKeys) => {
-    console.log(inKeys);
     let allChords = [];
     for (let key of Object.keys(inKeys)) {
         let currentChords = inKeys[key].chords;

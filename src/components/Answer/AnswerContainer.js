@@ -10,14 +10,32 @@ class AnswerContainer extends Component {
     state = {
         derivedCurrentQuestion: '',
         derivedCurrentKey: '',
+        derivedCurrentChord: '',
     }
 
 
     static getDerivedStateFromProps(props, state) {
-        const { currentQuestion, currentKey } = props;
+        const { currentQuestion, currentKey, currentChord } = props;
         return {
+
+            // Trying to learn getDerivedStateFromProps here...
+            // TODO: Question: Can the first three of these just be referenced through props?
             derivedCurrentQuestion: currentQuestion,
             derivedCurrentKey: currentKey,
+            derivedCurrentChord: currentChord,
+            derivedCurrentAnswer: (function (x) {
+                switch (x) {
+                    case 'chord':
+                        return currentChord.chordAbbreviation;
+                        break;
+                    case 'number':
+                        return currentChord.nashvilleRoman;
+                        break;
+                    case 'key':
+                        return currentKey.keyName;
+                        break;
+                }
+            }(currentQuestion)),
         };
     }
 
@@ -36,17 +54,11 @@ class AnswerContainer extends Component {
         }
     }
 
-
-
     checkGuess(guess) {
-        // Get which type of question this is: Key, Number, or Chord.
-        let questionType = 'key'; // Get this from Sentence.
-        // Get the current X of the question type (correctAnswer).
-        let correctAnswer = 'A';  // Get this from state using a switch statement on questionType.
-        // Compare guess to X.
+        let { derivedCurrentAnswer } = this.state;
+        // Compare guess to derivedAnswer.
         // Return true or false accordingly.
-        // (Find a cleaner way to do this.  Perhaps with an additional function.
-        if (guess == correctAnswer) {
+        if (guess === derivedCurrentAnswer) {
             this.setState({
                 guessResult: 1,
             });

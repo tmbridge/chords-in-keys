@@ -155,6 +155,7 @@ export const buildRelativeMinorScales = () => {
 }
 
 // TODO: Question: Is there a better way to handle this process (constant generated from function).
+// TODO: Replace build Function with closure for this kind of function.
 export const minorScales = buildRelativeMinorScales();
 
 export const allScales = {
