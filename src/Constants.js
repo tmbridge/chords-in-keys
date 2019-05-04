@@ -1,4 +1,76 @@
 // Export is a node thing but also a webpack thing... TODO: research export
+
+import Answer from "./components/Answer/Answer";
+import React from "react";
+
+export const chromaticNotes = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'];
+
+export const enharmonicEquivalent = (note) => {
+    let enharmonicEquivalents = [
+        ['Ab', 'G#'],
+        ['A#', 'Bb'],
+        ['C#', 'Db'],
+        ['D#', 'Eb'],
+        ['F#', 'Gb'],
+    ]
+};
+
+export const halfStep = (fromNote) => {
+    let index = chromaticNotes.indexOf(fromNote);
+    if (index == chromaticNotes.length-1){
+        console.log("here");
+        console.log(index - chromaticNotes.length);
+        return chromaticNotes[index - chromaticNotes.length + 1]
+    }
+    else {
+        return chromaticNotes[index + 1];
+    }
+};
+
+export const wholeStep = (fromNote) => {
+    let index = chromaticNotes.indexOf(fromNote);
+    return halfStep(halfStep(fromNote))
+};
+
+export const reorderChromaticNotes = () => {
+    let newChromaticNotesOrder = [];
+    // pop off all indices before the parameter and push to end of array
+    return newChromaticNotesOrder;
+}
+
+export const majorScale = (fromNote) => {
+    let majorScaleFormula = [
+        function(i) {return wholeStep(i)},
+        function(i) {return wholeStep(i)},
+        function(i) {return halfStep(i)},
+        function(i) {return wholeStep(i)},
+        function(i) {return wholeStep(i)},
+        function(i) {return wholeStep(i)},
+    ];
+
+    let minorScaleFormula = [
+        function(i) {return wholeStep(i)},
+        function(i) {return halfStep(i)},
+        function(i) {return wholeStep(i)},
+        function(i) {return wholeStep(i)},
+        function(i) {return halfStep(i)},
+        function(i) {return wholeStep(i)},
+    ];
+
+    let scale =[];
+    let currentNote = fromNote;
+    scale.push(currentNote)
+    for (let step of majorScaleFormula) {
+        currentNote = step(currentNote);
+        scale.push(currentNote);
+    }
+    return scale;
+};
+console.log("majorscale");
+console.log(majorScale('F#'));
+
+console.log(halfStep('A'));
+
 export const chordQualities = [
     {
         fullName: "major",
