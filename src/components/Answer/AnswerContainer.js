@@ -13,7 +13,7 @@ class AnswerContainer extends Component {
 
         // State
         this.state = {
-            allKeys :  Object.keys(majorKeys.keys),
+            allKeys :  Object.keys(majorKeys),
             allNashvilleRomans : nashvilleNumbers.roman,
             allChords: getAllDistinctChords(),
             allChordsInCurrentKey: props.currentKey,

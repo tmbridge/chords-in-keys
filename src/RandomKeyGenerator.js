@@ -5,14 +5,16 @@ export const random = (ceiling, floor=0) => {
 }
 
 export const getRandomChordFromKey = (sourceKey) => {
+    console.log(sourceKey);
     let length = sourceKey.chords.length;
     return sourceKey.chords[random(length)];
 }
 
 export const getRandomKey = () => {
-    let objectKeys = Object.keys(majorKeys.keys);
+    console.log(majorKeys);
+    let objectKeys = Object.keys(majorKeys);
     let length = objectKeys.length;
-    return majorKeys.keys[objectKeys[random(length)]];
+    return majorKeys[objectKeys[random(length)]];
 }
 
 // TODO: write/test this method
@@ -22,7 +24,7 @@ export const getAllDistinctChords = (inKeys=majorKeys) => {
 
 // TODO: write/test this method
 export const getKeyByAbbreviation = (abbreviatedName) => {
-    majorKeys.keys.chords.find(abbreviatedName);
+    majorKeys.chords.find(abbreviatedName);
 }
 
 // TODO: write/test this method
