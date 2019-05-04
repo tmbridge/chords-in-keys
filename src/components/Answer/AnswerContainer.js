@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
-import Answer from "./Answer";
 import ReactDOM from 'react-dom';
+import Answer from "./Answer";
 
 // Constants
-import {currentKeys, majorKeys, nashvilleNumbers } from "../../Constants";
+import {currentKeys, keyGroups, nashvilleNumbers } from "../../Constants";
 import {getAllDistinctChords, getRandomChordFromKey} from "../../RandomKeyGenerator";
 
 class AnswerContainer extends Component {
-    // Constructor.
-    constructor(props) {
-        super(props);
-
-        // State
-        this.state = {
-            allKeys :  Object.keys(currentKeys),
-            allNashvilleRomans : nashvilleNumbers.roman,
-            allChords: getAllDistinctChords(),
-            allChordsInCurrentKey: props.currentKey,
-        }
-        // End state
+    state = {
+        derivedCurrentQuestion: '',
+        derivedCurrentKey: '',
     }
-    // End Constructor
+
+
+    static getDerivedStateFromProps(props, state) {
+        const { currentQuestion, currentKey } = props;
+        return {
+            derivedCurrentQuestion: currentQuestion,
+            derivedCurrentKey: currentKey,
+        };
+    }
+
+    getCurrentPossibleAnswers = () => {
+        let { derivedCurrentQuestion, derivedCurrentKey } = this.state;
+        switch (derivedCurrentQuestion) {
+            case 'chord':
+                return getAllDistinctChords(keyGroups[derivedCurrentKey.keyQuality]).sort();
+                break;
+            case 'number':
+                return nashvilleNumbers.roman.sort();
+                break;
+            case 'key':
+                return Object.keys(currentKeys).sort();
+                break;
+        }
+    }
+
+
 
     checkGuess(guess) {
         // Get which type of question this is: Key, Number, or Chord.
@@ -43,11 +59,11 @@ class AnswerContainer extends Component {
     }
 
     render() {
-        const { allKeys } = this.state;
+        let currentPossibleAnswers = this.getCurrentPossibleAnswers();
         return (
             <div>
                 {/*TODO: Set Button values to options associated with currently 'blanked out' Sentence component.*/}
-                {allKeys.map((key, index) => (
+                {currentPossibleAnswers.map((key, index) => (
                     /*TODO: Extract this button out to the Answer Component*/
                     <Answer onGuess={(guessToCheck) => this.checkGuess(guessToCheck)} value={key} />
                 ))}

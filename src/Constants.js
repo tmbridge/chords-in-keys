@@ -231,23 +231,26 @@ export const buildKeys = (keyQuality) => {
         }
         allKeys[keyName] = {
             keyName: chords[0].chordAbbreviation,
+            keyQuality: keyQuality,
             chords: chords,
         };
     }
     return allKeys;
 }
 
+//TODO: replace usages of this with allKeyGroups.x
 export const majorKeys = buildKeys('major');
 
 export const minorKeys = buildKeys('minor');
 
+export const keyGroups = {
+    major: buildKeys('major'),
+    minor: buildKeys('minor'),
+}
+
 // TODO: Use config to determine which source objects are used in parameter.
 export const getCurrentKeys = (keyQualityConfigSettings=[majorKeys,minorKeys]) => {
     let currentKeys = {};
-    console.log("MinorKeys:");
-    console.log(minorKeys);
-    console.log("MajorKeys:");
-    console.log(majorKeys);
     for (let selectedKeyQuality of keyQualityConfigSettings) {
         currentKeys = Object.assign(currentKeys, selectedKeyQuality);
     }
@@ -255,5 +258,3 @@ export const getCurrentKeys = (keyQualityConfigSettings=[majorKeys,minorKeys]) =
 }
 
 export const currentKeys = getCurrentKeys();
-console.log("CurrentKeys");
-console.log(currentKeys);

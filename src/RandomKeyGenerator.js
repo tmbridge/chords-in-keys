@@ -17,7 +17,17 @@ export const getRandomKey = () => {
 
 // TODO: write/test this method
 export const getAllDistinctChords = (inKeys=currentKeys) => {
-    return inKeys;
+    console.log(inKeys);
+    let allChords = [];
+    for (let key of Object.keys(inKeys)) {
+        let currentChords = inKeys[key].chords;
+        for (let index in currentChords) {
+            let currentChordAbbreviation = currentChords[index].chordAbbreviation;
+            allChords.push(currentChordAbbreviation);
+        }
+    }
+    // Dedupe before returning.
+    return Array.from(new Set(allChords));
 }
 
 // TODO: write/test this method
