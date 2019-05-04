@@ -5,13 +5,11 @@ export const random = (ceiling, floor=0) => {
 }
 
 export const getRandomChordFromKey = (sourceKey) => {
-    console.log(sourceKey);
     let length = sourceKey.chords.length;
     return sourceKey.chords[random(length)];
 }
 
 export const getRandomKey = () => {
-    console.log(currentKeys);
     let objectKeys = Object.keys(currentKeys);
     let length = objectKeys.length;
     return currentKeys[objectKeys[random(length)]];

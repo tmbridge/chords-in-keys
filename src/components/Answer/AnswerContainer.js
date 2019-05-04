@@ -23,8 +23,6 @@ class AnswerContainer extends Component {
     // End Constructor
 
     checkGuess(guess) {
-        console.log("checkGuess:");
-        console.log(guess);
         // Get which type of question this is: Key, Number, or Chord.
         let questionType = 'key'; // Get this from Sentence.
         // Get the current X of the question type (correctAnswer).

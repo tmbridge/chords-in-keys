@@ -10,8 +10,6 @@ class Answer extends Component {
 
     makeGuess(guessToCheck) {
         let { onGuess } = this.props;
-        console.log("makeGuess:");
-        console.log(guessToCheck.value);
         onGuess(guessToCheck.value);
     }
     // End Constructor

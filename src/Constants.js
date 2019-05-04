@@ -118,10 +118,24 @@ export const majorScales = [
         // F#
         [ 'F#', 'G#', 'A#', 'B', 'C#', 'D#', 'E#' ],
 
+        // Gb
+        [ 'Gb', 'Ab', 'Bb', 'Cb', 'Db', 'Eb', 'F' ],
+
+        // Db
+        [ 'Db', 'Eb', 'F', 'Gb', 'Ab', 'Bb', 'F' ],
+
+        // Ab
+        [ 'Ab', 'Bb', 'C', 'Db', 'Eb', 'F', 'G' ],
+
+        // Eb
+        [ 'Eb', 'F', 'G', 'Ab', 'Bb', 'C', 'D' ],
+
+        // Bb
+        [ 'Bb', 'C', 'D', 'Eb', 'F', 'G', 'A' ],
+
         // F
         [ 'F', 'G', 'A', 'Bb', 'C', 'D', 'E' ],
 
-        // TODO:  Add flat scales here
     ];
 
 export const majorScaleToMinorScale = (majorScale) => {
@@ -137,8 +151,6 @@ export const buildRelativeMinorScales = () => {
     for (let majorScale of majorScales) {
         minorScalesContainer.push(majorScaleToMinorScale(majorScale));
     }
-    console.log("minorScale Gen:");
-    console.log (minorScalesContainer);
     return minorScalesContainer;
 }
 
@@ -200,7 +212,7 @@ export const buildKeys = (keyQuality) => {
     for (let scale of allScales[keyQuality]) {
         // Build key
         let chords = [];
-        let keyName = scale[0];
+        let keyName = ((keyQuality == 'major') ? scale[0] : scale[0] + "m");
         for (let noteString of scale) {
             //Build chord
             let noteInterval = scale.indexOf(noteString);
@@ -232,6 +244,10 @@ export const minorKeys = buildKeys('minor');
 // TODO: Use config to determine which source objects are used in parameter.
 export const getCurrentKeys = (keyQualityConfigSettings=[majorKeys,minorKeys]) => {
     let currentKeys = {};
+    console.log("MinorKeys:");
+    console.log(minorKeys);
+    console.log("MajorKeys:");
+    console.log(majorKeys);
     for (let selectedKeyQuality of keyQualityConfigSettings) {
         currentKeys = Object.assign(currentKeys, selectedKeyQuality);
     }
