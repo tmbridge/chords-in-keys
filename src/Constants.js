@@ -250,6 +250,8 @@ export const keyGroups = {
 }
 
 // TODO: Use config to determine which source objects are used in parameter.
+// TODO: filter this functions output by selection in the Settings pane (key quality, single keys, sharp/flat keys only).
+// TODO: When building the Settings Pane, start with indvidual selections only then build the UI elements to select 'preset groups' (Similar to Chord Circle)
 export const getCurrentKeys = (keyQualityConfigSettings=[majorKeys,minorKeys]) => {
     let currentKeys = {};
     for (let selectedKeyQuality of keyQualityConfigSettings) {
