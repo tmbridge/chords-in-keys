@@ -77,9 +77,8 @@ class AnswerContainer extends Component {
         return (
             <div>
                 <div className="answer-container">
-                {/*TODO: Set Button values to options associated with currently 'blanked out' Sentence component.*/}
                 {currentPossibleAnswers.map((key, index) => (
-                    /*TODO: Extract this button out to the Answer Component*/
+                    // TODO: Change UI for selectiong answer.  Grid, Wheel, tree?
                     <Answer onGuess={(guessToCheck) => this.checkGuess(guessToCheck)} value={key} />
                 ))}
                 </div>
