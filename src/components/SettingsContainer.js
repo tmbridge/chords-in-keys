@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class ConfigurationContainer extends Component {
+class SettingsContainer extends Component {
 
     render() {
         // TODO: Question: How to get currentKey from Sentence or Key component for use in line 15.
@@ -24,4 +24,4 @@ class ConfigurationContainer extends Component {
     }
 }
 
-export default ConfigurationContainer;
+export default SettingsContainer;

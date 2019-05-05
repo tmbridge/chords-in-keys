@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Answer from "./Answer";
-import VerdictContainer from "../Verdict/VerdictContainer"
+import VerdictContainer from "../VerdictContainer"
 
 // Constants
 import {currentKeys, keyGroups, nashvilleNumbers } from "../../Constants";
