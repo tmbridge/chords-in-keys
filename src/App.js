@@ -1,6 +1,6 @@
 import React from 'react';
 import SentenceContainer from './components/Sentence/SentenceContainer.js'
-import ConfigurationContainer from './components/Configuration/ConfigurationContainer.js'
+import SettingsContainer from './components/SettingsContainer.js'
 import logo from './logo.svg';
 import './App.css';
 
@@ -15,7 +15,7 @@ function App() {
             <li>- SHow guess value in setence with green or red correct/incorrect</li>
                 <li>- settings/config</li>
         </div>
-        <ConfigurationContainer/>
+        <SettingsContainer/>
     </div>
   );
 }

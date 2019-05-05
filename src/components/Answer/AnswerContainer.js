@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Answer from "./Answer";
-import VerdictContainer from "../Verdict/VerdictContainer"
+import VerdictContainer from "../VerdictContainer"
 
 // Constants
 import {currentKeys, keyGroups, nashvilleNumbers } from "../../Constants";
@@ -77,9 +77,8 @@ class AnswerContainer extends Component {
         return (
             <div>
                 <div className="answer-container">
-                {/*TODO: Set Button values to options associated with currently 'blanked out' Sentence component.*/}
                 {currentPossibleAnswers.map((key, index) => (
-                    /*TODO: Extract this button out to the Answer Component*/
+                    // TODO: Change UI for selectiong answer.  Grid, Wheel, tree?
                     <Answer onGuess={(guessToCheck) => this.checkGuess(guessToCheck)} value={key} />
                 ))}
                 </div>
