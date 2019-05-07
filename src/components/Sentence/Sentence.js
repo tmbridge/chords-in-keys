@@ -19,6 +19,8 @@ class Sentence extends Component {
 
         // State
         let {currentKeys} = this.props;
+        console.log("currentKeys");
+        console.log(currentKeys);
         let newKey =  getRandomKey(currentKeys);
         this.state = {
             currentKey : newKey,
@@ -66,7 +68,7 @@ class Sentence extends Component {
                         <SentenceChord value={this.getSentenceValue('chord')} /> is the <SentenceNashvilleNumber value={this.getSentenceValue('number')} /> in the key of <SentenceKey value={this.getSentenceValue('key')} />
                     </p>
                     <p>
-                        <AnswerContainer currentKeys={currentKeys} keyGroupsFilteredBySettings={keyGroupsFilteredBySettings} currentKey={currentKey} currentChord={currentChord} currentQuestion={currentQuestion} onSkipClicked={() => this.next()}/>
+                        <AnswerContainer currentKeys={currentKeys} currentKey={currentKey} currentChord={currentChord} currentQuestion={currentQuestion} onSkipClicked={() => this.next()}/>
                     </p>
                 </div>
         );

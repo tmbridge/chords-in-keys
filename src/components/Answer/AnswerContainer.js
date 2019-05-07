@@ -43,10 +43,10 @@ class AnswerContainer extends Component {
 
     getCurrentPossibleAnswers = () => {
         let { derivedCurrentQuestion, derivedCurrentKey } = this.state;
-        let { keyGroupsFilteredBySettings, currentKeys } = this.props;
+        let { currentKeys } = this.props;
         switch (derivedCurrentQuestion) {
             case 'chord':
-                return getAllDistinctChords(keyGroupsFilteredBySettings).sort();
+                return getAllDistinctChords(currentKeys).sort();
                 break;
             case 'number':
                 return nashvilleNumbers.roman.sort();

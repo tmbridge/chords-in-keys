@@ -7,10 +7,10 @@ class SentenceContainer extends Component {
         super(props);
     }
     render() {
-        let { currentKeys, keyGroupsFilteredBySettings } = this.props;
+        let { currentKeys } = this.props;
         return (
             <div>
-                <Sentence currentKeys={currentKeys} keyGroupsFilteredBySettings={keyGroupsFilteredBySettings} />
+                <Sentence currentKeys={currentKeys} />
             </div>
         );
     }

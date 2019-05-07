@@ -7,18 +7,9 @@ import {allScales, getAccidentalFromNoteString, isInArray, keyFormulas, nashvill
 
 class App extends Component
 {
-    state = {
-        keyQualities: {
-            major: 'true',
-            minor: '',
-        },
-        keyAccidentals: {
-            sharp: '',
-            flat: '',
-            natural: 'true',
-        },
-    }
-    /*constructor(props) {
+
+// TODO: Question: get TypeError: Cannot read property 'keyAccidentals' of undefined when trying to use constructor
+/*    constructor(props) {
         super(props);
 
         this.state = {
@@ -34,19 +25,28 @@ class App extends Component
         }
 
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-/!*        this.filteredMajorScales = this.filteredMajorScales.bind(this);
-        this.filteredMinorScales = this.filteredMinorScales.bind(this);*!/
+        this.filteredMajorScales = this.filteredMajorScales.bind(this);
+        this.filteredMinorScales = this.filteredMinorScales.bind(this);
         this.filterScalesByAccidental = this.filterScalesByAccidental.bind(this);
         this.filterKeyGroupsBySettings = this.filterKeyGroupsBySettings.bind(this);
     }*/
 
     // TODO: write function that returns an object containing only the members that are true in the argument
-    getKeysIfValueIsTrue = (obj) => {
+    getAllKeysWithTrueValue = (obj) => {
+        let out = [];
         let keys = Object.keys(obj);
-
+        for (let i of keys) {
+            console.log(obj[i]);
+            if (obj[i] == 'true'){
+                console.log("herw");
+                out.push(i);
+            }
+        }
+        console.log("out");
+        console.log(out);
+        return out;
     }
 
-    // TODO: Use Settings Form data for this function's argument
      filterScalesByAccidental = (scaleContainer, allowedAccidentals = ['sharp', 'natural', 'flat']) => {
          console.log("allowedAccidentals");
          console.log(allowedAccidentals);
@@ -54,6 +54,8 @@ class App extends Component
         // TODO: Refactor this to a single if with all conditions in a single test
         // TODO: Refactor this to use accidentals object instead of string matching
         scaleContainer.forEach( function (scale) {
+            console.log("scale");
+            console.log(scale);
             if ((scale[0].includes('#')) && isInArray('sharp', allowedAccidentals)){
                 filteredScales.push(scale);
             }
@@ -61,14 +63,30 @@ class App extends Component
                 filteredScales.push(scale);
             }
             else if ( ((!scale[0].includes('#')) && (!scale[0].includes('b'))) && isInArray('natural', allowedAccidentals)){
+                filteredScales.push(scale);
                 console.log ("keeping natural scale "  + scale[0])
             }
         });
+         console.log("filteredScales");
+         console.log(filteredScales);
         return filteredScales;
     }
 
-    filteredMajorScales = this.filterScalesByAccidental(allScales.major, Object.keys(this.state.keyAccidentals));
-    filteredMinorScales = this.filterScalesByAccidental(allScales.minor, Object.keys(this.state.keyAccidentals));
+    state = {
+        currentKeys: {},
+        keyQualities: {
+            major: 'true',
+            minor: '',
+        },
+        keyAccidentals: {
+            sharp: '',
+            flat: '',
+            natural: 'true',
+        },
+    }
+
+    filteredMajorScales = this.filterScalesByAccidental(allScales.major, this.getAllKeysWithTrueValue(this.state.keyAccidentals));
+    filteredMinorScales = this.filterScalesByAccidental(allScales.minor, this.getAllKeysWithTrueValue(this.state.keyAccidentals));
 
     allFilteredScales = {
         major: this.filteredMajorScales,
@@ -113,7 +131,6 @@ class App extends Component
 
     allKeyQualities = Object.keys(this.allKeyGroupsWithFilteredKeys);
 
-// TODO: Use Settings form data for this function's argument
     filterKeyGroupsBySettings = (allowedGroups=['major','minor']) => {
     let filteredKeyGroups = {};
     for (let groupName in this.allKeyGroupsWithFilteredKeys) {
@@ -124,19 +141,29 @@ class App extends Component
     return filteredKeyGroups;
 }
 
-    keyGroupsFilteredBySettings = this.filterKeyGroupsBySettings(Object.keys(this.state.keyQualities));
+    initialKeys = this.filterKeyGroupsBySettings(this.getAllKeysWithTrueValue(this.state.keyQualities));
+    //keyGroupsFilteredBySettings = this.filterKeyGroupsBySettings();
 
-    currentKeys = this.keyGroupsFilteredBySettings;
+    constructor(props) {
+        super(props);
+        this.setState({
+            currentKeys : this.initialKeys,
+        })
 
-    // TODO: Put this State into Sentence then pass it via prop into this Component's onChange?
-    // TODO: Also move the filtering functions in Constants.js to Sentence component and keep the set of filtered keys as state therein?  This will allow this Checkbox change to directly affect the filtered keys in Sentence's state
+        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+        this.filterScalesByAccidental = this.filterScalesByAccidental.bind(this);
+        this.filterKeyGroupsBySettings = this.filterKeyGroupsBySettings.bind(this);
+    }
+
     handleCheckboxChange = (field) => (e) => {
         let settingGroup = e.target.attributes['settingGroup'].value;
         let settingName = e.target.value;
         let settingChecked = e.target.checked;
-        let stateObject = {};
+        let stateObject = this.state;
+
         stateObject[settingGroup] = this.state[settingGroup];
         stateObject[settingGroup][settingName] = settingChecked;
+        stateObject['currentKeys'] =
         this.setState(stateObject);
     }
 
@@ -146,8 +173,7 @@ class App extends Component
         return (
             <div className="App">
                 <header className="App-header">
-                    <SentenceContainer currentKeys={this.currentKeys}
-                                       keyGroupsFilteredBySettings={this.keyGroupsFilteredBySettings}/>
+                    <SentenceContainer currentKeys={this.initialKeys} />
                 </header>
                 <div>
                 </div>
