@@ -7,7 +7,18 @@ import {allScales, getAccidentalFromNoteString, isInArray, keyFormulas, nashvill
 
 class App extends Component
 {
-    constructor(props) {
+    state = {
+        keyQualities: {
+            major: 'true',
+            minor: '',
+        },
+        keyAccidentals: {
+            sharp: '',
+            flat: '',
+            natural: 'true',
+        },
+    }
+    /*constructor(props) {
         super(props);
 
         this.state = {
@@ -23,10 +34,22 @@ class App extends Component
         }
 
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+/!*        this.filteredMajorScales = this.filteredMajorScales.bind(this);
+        this.filteredMinorScales = this.filteredMinorScales.bind(this);*!/
+        this.filterScalesByAccidental = this.filterScalesByAccidental.bind(this);
+        this.filterKeyGroupsBySettings = this.filterKeyGroupsBySettings.bind(this);
+    }*/
+
+    // TODO: write function that returns an object containing only the members that are true in the argument
+    getKeysIfValueIsTrue = (obj) => {
+        let keys = Object.keys(obj);
+
     }
 
     // TODO: Use Settings Form data for this function's argument
      filterScalesByAccidental = (scaleContainer, allowedAccidentals = ['sharp', 'natural', 'flat']) => {
+         console.log("allowedAccidentals");
+         console.log(allowedAccidentals);
         let filteredScales = [];
         // TODO: Refactor this to a single if with all conditions in a single test
         // TODO: Refactor this to use accidentals object instead of string matching
@@ -44,8 +67,8 @@ class App extends Component
         return filteredScales;
     }
 
-    filteredMajorScales = this.filterScalesByAccidental(allScales.major);
-    filteredMinorScales = this.filterScalesByAccidental(allScales.minor);
+    filteredMajorScales = this.filterScalesByAccidental(allScales.major, Object.keys(this.state.keyAccidentals));
+    filteredMinorScales = this.filterScalesByAccidental(allScales.minor, Object.keys(this.state.keyAccidentals));
 
     allFilteredScales = {
         major: this.filteredMajorScales,
@@ -101,7 +124,7 @@ class App extends Component
     return filteredKeyGroups;
 }
 
-    keyGroupsFilteredBySettings = this.filterKeyGroupsBySettings();
+    keyGroupsFilteredBySettings = this.filterKeyGroupsBySettings(Object.keys(this.state.keyQualities));
 
     currentKeys = this.keyGroupsFilteredBySettings;
 
