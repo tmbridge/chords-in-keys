@@ -138,6 +138,10 @@ export const majorScales = [
 
     ];
 
+export const filterMajorScalesByAccidental = () => {
+
+}
+
 export const majorScaleToMinorScale = (majorScale) => {
     let minorScale = Array.from(majorScale);
     for (let i =0; i<2; i++) {
@@ -244,9 +248,31 @@ export const majorKeys = buildKeys('major');
 
 export const minorKeys = buildKeys('minor');
 
-export const keyGroups = {
+export const allKeyGroups = {
     major: buildKeys('major'),
     minor: buildKeys('minor'),
+}
+
+export const filteredKeyGroups = () => {
+    return filterKeyGroupsBySettings();
+}
+
+export const isInArray = (needle, haystack) => {
+    if (haystack.indexOf(needle) > -1) {
+        return true;
+    }
+    return false;
+};
+
+// TODO: Use Settings form data for this function's argument
+export const filterKeyGroupsBySettings = (allowedGroups=['major']) => {
+    let filteredKeyGroups = {};
+    for (let groupName in allKeyGroups) {
+        if (isInArray(groupName, allowedGroups)) {
+            Object.assign(filteredKeyGroups, allKeyGroups[groupName]);
+        }
+    }
+    return filteredKeyGroups;
 }
 
 // TODO: Use config to determine which source objects are used in parameter.
@@ -260,4 +286,4 @@ export const getCurrentKeys = (keyQualityConfigSettings=[majorKeys,minorKeys]) =
     return currentKeys;
 }
 
-export const currentKeys = getCurrentKeys();
+export const currentKeys = filteredKeyGroups();

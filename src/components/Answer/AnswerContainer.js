@@ -4,7 +4,7 @@ import Answer from "./Answer";
 import VerdictContainer from "../VerdictContainer"
 
 // Constants
-import {currentKeys, keyGroups, nashvilleNumbers } from "../../Constants";
+import {currentKeys, filteredKeyGroups, nashvilleNumbers } from "../../Constants";
 import {getAllDistinctChords, getRandomChordFromKey} from "../../RandomKeyGenerator";
 
 class AnswerContainer extends Component {
@@ -45,7 +45,7 @@ class AnswerContainer extends Component {
         let { derivedCurrentQuestion, derivedCurrentKey } = this.state;
         switch (derivedCurrentQuestion) {
             case 'chord':
-                return getAllDistinctChords(keyGroups[derivedCurrentKey.keyQuality]).sort();
+                return getAllDistinctChords(filteredKeyGroups[derivedCurrentKey.keyQuality]).sort();
                 break;
             case 'number':
                 return nashvilleNumbers.roman.sort();
