@@ -6,7 +6,6 @@ import AnswerContainer from "../Answer/AnswerContainer.js";
 class SentenceContainer extends Component {
 
     render() {
-        let currentKey = "Am";
         return (
             <div>
                 <Sentence />

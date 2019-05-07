@@ -1,26 +1,60 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Answer from "./Answer/Answer";
+import {accidentals, allKeyQualities} from "../Constants";
 
 class SettingsContainer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            settings : {
+                keyQualities : {
+                    major: '',
+                    minor: 'checked',
+                },
+                keyAccidentals : {
+                    sharp: 'checked',
+                    flat: '',
+                    natural: 'checked',
+                }
+            }
+        }
+
+        this.updateSettings = this.updateSettings.bind(this);
+    }
+
+    updateSettings(e) {
+        console.log("Updating Settings State.");
+        console.log(e.target);
+        this.setState({
+            settings : {
+                keyQualities : {
+                    major: this.in,
+                    minor: '',
+                },
+                keyAccidentals : {
+                    sharp: '',
+                    flat: '',
+                    natural: '',
+                }
+            }
+        })
+    }
 
     render() {
-        // TODO: Question: How to get currentKey from Sentence or Key component for use in line 15.
-        let currentKey = "Am";
+        let { settings } = this.state;
         return (
             <div>
-                Here will be configuration settings <br/>
-                (e.g. <ul>
-                <li>filter randomizer for specific key qualities,</li>
-                <li>filter randomizer for specific key accidentals,</li>
-                <li>filter randomizer for specfic keys,</li>
-                <li>choose which of the three variables (Key, Number, Chord) get randomly 'blanked',</li>
-                <li>Roman or Arabic Numerals,</li>
-                <li>time allowed per sentence,</li>
-                <li>Number of attempts before failure</li>
-                <li>etc.</li>
-                </ul>
+                {allKeyQualities.map((quality, index) => (
+                    React.createElement('input', {
+                        type: 'checkbox',
+                        placeholder: 'Name (required)',
+                        value: settings.keyQualities[quality],
+                    })
+                ))}
             </div>
-        );
+        )
     }
 }
 
