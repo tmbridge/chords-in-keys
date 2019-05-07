@@ -5,36 +5,56 @@ import logo from './logo.svg';
 import './App.css';
 import {allScales, getAccidentalFromNoteString, isInArray, keyFormulas, nashvilleNumbers} from "./Constants";
 
-// TODO: Use Settings Form data for this function's argument
-let filterScalesByAccidental = (scaleContainer, allowedAccidentals = ['sharp', 'natural', 'flat']) => {
-    let filteredScales = [];
-    // TODO: Refactor this to a single if with all conditions in a single test
-    // TODO: Refactor this to use accidentals object instead of string matching
-    scaleContainer.forEach( function (scale) {
-        if ((scale[0].includes('#')) && isInArray('sharp', allowedAccidentals)){
-            filteredScales.push(scale);
-        }
-        else if ((scale[0].includes('b')) && isInArray('flat', allowedAccidentals)){
-            filteredScales.push(scale);
-        }
-        else if ( ((!scale[0].includes('#')) && (!scale[0].includes('b'))) && isInArray('natural', allowedAccidentals)){
-            console.log ("keeping natural scale "  + scale[0])
-        }
-    });
-    return filteredScales;
-}
+class App extends Component
+{
+    constructor(props) {
+        super(props);
 
-let filteredMajorScales = filterScalesByAccidental(allScales.major);
-let filteredMinorScales = filterScalesByAccidental(allScales.minor);
+        this.state = {
+            keyQualities: {
+                major: 'true',
+                minor: 'true',
+            },
+            keyAccidentals: {
+                sharp: 'true',
+                flat: 'true',
+                natural: 'true',
+            },
+        }
 
-let allFilteredScales = {
-    major: filteredMajorScales,
-    minor: filteredMinorScales,
-};
+        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    }
 
-let buildFilteredKeys = (keyQuality) => {
+    // TODO: Use Settings Form data for this function's argument
+     filterScalesByAccidental = (scaleContainer, allowedAccidentals = ['sharp', 'natural', 'flat']) => {
+        let filteredScales = [];
+        // TODO: Refactor this to a single if with all conditions in a single test
+        // TODO: Refactor this to use accidentals object instead of string matching
+        scaleContainer.forEach( function (scale) {
+            if ((scale[0].includes('#')) && isInArray('sharp', allowedAccidentals)){
+                filteredScales.push(scale);
+            }
+            else if ((scale[0].includes('b')) && isInArray('flat', allowedAccidentals)){
+                filteredScales.push(scale);
+            }
+            else if ( ((!scale[0].includes('#')) && (!scale[0].includes('b'))) && isInArray('natural', allowedAccidentals)){
+                console.log ("keeping natural scale "  + scale[0])
+            }
+        });
+        return filteredScales;
+    }
+
+    filteredMajorScales = this.filterScalesByAccidental(allScales.major);
+    filteredMinorScales = this.filterScalesByAccidental(allScales.minor);
+
+    allFilteredScales = {
+        major: this.filteredMajorScales,
+        minor: this.filteredMinorScales,
+    };
+
+    buildFilteredKeys = (keyQuality) => {
     let allKeys = {};
-    for (let scale of allFilteredScales[keyQuality]) {
+    for (let scale of this.allFilteredScales[keyQuality]) {
         // Build key
         let chords = [];
         let keyName = ((keyQuality == 'major') ? scale[0] : scale[0] + "m");
@@ -63,48 +83,27 @@ let buildFilteredKeys = (keyQuality) => {
     return allKeys;
 }
 
-let allKeyGroupsWithFilteredKeys = {
-    major: buildFilteredKeys('major'),
-    minor: buildFilteredKeys('minor'),
+    allKeyGroupsWithFilteredKeys = {
+    major: this.buildFilteredKeys('major'),
+    minor: this.buildFilteredKeys('minor'),
 }
 
-let allKeyQualities = Object.keys(allKeyGroupsWithFilteredKeys);
+    allKeyQualities = Object.keys(this.allKeyGroupsWithFilteredKeys);
 
 // TODO: Use Settings form data for this function's argument
-let filterKeyGroupsBySettings = (allowedGroups=['major','minor']) => {
+    filterKeyGroupsBySettings = (allowedGroups=['major','minor']) => {
     let filteredKeyGroups = {};
-    for (let groupName in allKeyGroupsWithFilteredKeys) {
+    for (let groupName in this.allKeyGroupsWithFilteredKeys) {
         if (isInArray(groupName, allowedGroups)) {
-            Object.assign(filteredKeyGroups, allKeyGroupsWithFilteredKeys[groupName]);
+            Object.assign(filteredKeyGroups, this.allKeyGroupsWithFilteredKeys[groupName]);
         }
     }
     return filteredKeyGroups;
 }
 
-let keyGroupsFilteredBySettings = filterKeyGroupsBySettings();
+    keyGroupsFilteredBySettings = this.filterKeyGroupsBySettings();
 
-let currentKeys = keyGroupsFilteredBySettings;
-
-class App extends Component
-{
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            keyQualities: {
-                major: 'true',
-                minor: 'true',
-            },
-            keyAccidentals: {
-                sharp: 'true',
-                flat: 'true',
-                natural: 'true',
-            },
-        }
-
-        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    }
+    currentKeys = this.keyGroupsFilteredBySettings;
 
     // TODO: Put this State into Sentence then pass it via prop into this Component's onChange?
     // TODO: Also move the filtering functions in Constants.js to Sentence component and keep the set of filtered keys as state therein?  This will allow this Checkbox change to directly affect the filtered keys in Sentence's state
@@ -124,12 +123,12 @@ class App extends Component
         return (
             <div className="App">
                 <header className="App-header">
-                    <SentenceContainer currentKeys={currentKeys}
-                                       keyGroupsFilteredBySettings={keyGroupsFilteredBySettings}/>
+                    <SentenceContainer currentKeys={this.currentKeys}
+                                       keyGroupsFilteredBySettings={this.keyGroupsFilteredBySettings}/>
                 </header>
                 <div>
                 </div>
-                <SettingsContainer settings={settings} handleCheckboxChange={() => this.handleCheckboxChange()} allKeyQualities={allKeyQualities}/>
+                <SettingsContainer settings={settings} handleCheckboxChange={() => this.handleCheckboxChange()} allKeyQualities={this.allKeyQualities}/>
             </div>
         );
     }
