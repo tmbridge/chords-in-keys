@@ -8,53 +8,60 @@ class SettingsContainer extends Component {
         super(props);
 
         this.state = {
-            settings : {
-                keyQualities : {
-                    major: '',
-                    minor: 'checked',
-                },
-                keyAccidentals : {
-                    sharp: 'checked',
-                    flat: '',
-                    natural: 'checked',
-                }
-            }
+            major: 'true',
+            minor: 'true',
+            sharp: 'true',
+            flat: 'true',
+            natural: 'true',
         }
 
-        this.updateSettings = this.updateSettings.bind(this);
+        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     }
 
-    updateSettings(e) {
-        console.log("Updating Settings State.");
-        console.log(e.target);
+    // TODO: Put this State into Sentence then pass it via prop into this Component's onChange?
+    // TODO: Also move the filtering functions in Constants.js to Sentence component and keep the set of filtered keys as state therein?  This will allow this Checkbox change to directly affect the filtered keys in Sentence's state
+    handleCheckboxChange = (field) => (e) => {
         this.setState({
-            settings : {
-                keyQualities : {
-                    major: this.in,
-                    minor: '',
-                },
-                keyAccidentals : {
-                    sharp: '',
-                    flat: '',
-                    natural: '',
-                }
-            }
-        })
+          [field]: e.target.checked
+      });
     }
 
     render() {
-        let { settings } = this.state;
         return (
             <div>
-                {allKeyQualities.map((quality, index) => (
-                    React.createElement('input', {
-                        type: 'checkbox',
-                        placeholder: 'Name (required)',
-                        value: settings.keyQualities[quality],
-                    })
-                ))}
+                <p>
+                    {allKeyQualities.map((quality, index) => (
+                        <div>
+                            <input
+                                className='setting-checkbox'
+                                type='checkbox'
+                                settingGroup='keyQualities'
+                                value={quality}
+                                checked={this.state[quality]}
+                                onChange = {this.handleCheckboxChange([quality])}
+                            />
+                            <label>{quality}</label>
+
+                        </div>
+                    ))}
+                </p>
+                <p>
+                    {Object.keys(accidentals).map((accidental, index) => (
+                        <div>
+                            <input
+                                className='setting-checkbox'
+                                type='checkbox'
+                                settingGroup='keyAccidentals'
+                                value={accidental}
+                                checked={this.state[accidental]}
+                                onChange = {this.handleCheckboxChange([accidental])}
+                            />
+                            <label>{accidental}</label>
+                        </div>
+                    ))}
+                </p>
             </div>
-        )
+        );
     }
 }
 
