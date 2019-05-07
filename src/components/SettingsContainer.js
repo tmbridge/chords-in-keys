@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Answer from "./Answer/Answer";
-import {accidentals, allKeyQualities} from "../Constants";
+import {accidentals} from "../Constants";
 
 class SettingsContainer extends Component {
     constructor(props) {
@@ -27,6 +27,7 @@ class SettingsContainer extends Component {
     }
 
     render() {
+        let { allKeyQualities } = this.props;
         return (
             <div>
                 <p>

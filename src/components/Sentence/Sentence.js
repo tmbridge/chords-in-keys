@@ -18,7 +18,8 @@ class Sentence extends Component {
         super(props);
 
         // State
-        let newKey =  getRandomKey();
+        let {currentKeys} = this.props;
+        let newKey =  getRandomKey(currentKeys);
         this.state = {
             currentKey : newKey,
             currentChord : getRandomChordFromKey(newKey),
@@ -46,7 +47,8 @@ class Sentence extends Component {
 
     // Method to advance to next sentence.
     next(){
-        let newKey =  getRandomKey();
+        let {currentKeys} = this.props;
+        let newKey =  getRandomKey(currentKeys);
         this.setState({
             currentKey : newKey,
             currentChord : getRandomChordFromKey(newKey),
@@ -56,6 +58,7 @@ class Sentence extends Component {
 
     render() {
         let { currentQuestion, currentKey, currentChord } = this.state;
+        let { currentKeys, keyGroupsFilteredBySettings } = this.props;
         return (
                 <div>
                     {/*TODO: Randomly 'blank out' one of the three of these components and set Answer values to associated options.*/}
@@ -63,7 +66,7 @@ class Sentence extends Component {
                         <SentenceChord value={this.getSentenceValue('chord')} /> is the <SentenceNashvilleNumber value={this.getSentenceValue('number')} /> in the key of <SentenceKey value={this.getSentenceValue('key')} />
                     </p>
                     <p>
-                        <AnswerContainer currentKey={currentKey} currentChord={currentChord} currentQuestion={currentQuestion} onSkipClicked={() => this.next()}/>
+                        <AnswerContainer currentKeys={currentKeys} keyGroupsFilteredBySettings={keyGroupsFilteredBySettings} currentKey={currentKey} currentChord={currentChord} currentQuestion={currentQuestion} onSkipClicked={() => this.next()}/>
                     </p>
                 </div>
         );

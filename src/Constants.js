@@ -183,62 +183,24 @@ export const buildRelativeMinorScales = () => {
     return minorScalesContainer;
 }
 
-// TODO: Question: Is there a better way to handle this process (constant generated from function).
-// TODO: Replace build Function with closure for this kind of function.
-export const allMinorScales = buildRelativeMinorScales();
-
-export const allScales = {
-    major: allMajorScales,
-    minor: allMinorScales,
-};
-
-// TODO: Use Settings Form data for this function's argument
-export const filterScalesByAccidental = (scaleQuality, allowedAccidentals = ['sharp', 'natural', 'flat']) => {
-    let filteredScales = [];
-    // TODO: Refactor this to a single if with all conditions in a single test
-    allScales[scaleQuality].forEach( function (scale) {
-        if ((scale[0].includes('#')) && isInArray('sharp', allowedAccidentals)){
-            filteredScales.push(scale);
-            console.log ("keeping sharp scale "  + scale[0])
-        }
-        else if ((scale[0].includes('b')) && isInArray('flat', allowedAccidentals)){
-            filteredScales.push(scale);
-            console.log ("keeping flat scale "  + scale[0])
-        }
-        else if ( ((!scale[0].includes('#')) && (!scale[0].includes('b'))) && isInArray('natural', allowedAccidentals)){
-            console.log ("keeping natural scale "  + scale[0])
-            filteredScales.push(scale);
-        }
-    });
-    return filteredScales;
-}
-
-export const filteredMajorScales = filterScalesByAccidental('major');
-export const filteredMinorScales = filterScalesByAccidental('minor');
-
-export const allFilteredScales = {
-    major: filteredMajorScales,
-    minor: filteredMinorScales,
-};
-
 export const keyFormulas = {
     major : [
-            chordQualities.major,
-            chordQualities.minor,
-            chordQualities.minor,
-            chordQualities.major,
-            chordQualities.major,
-            chordQualities.minor,
-            chordQualities.dim,
+        chordQualities.major,
+        chordQualities.minor,
+        chordQualities.minor,
+        chordQualities.major,
+        chordQualities.major,
+        chordQualities.minor,
+        chordQualities.dim,
     ],
     minor : [
-            chordQualities.minor,
-            chordQualities.dim,
-            chordQualities.major,
-            chordQualities.minor,
-            chordQualities.minor,
-            chordQualities.major,
-            chordQualities.major,
+        chordQualities.minor,
+        chordQualities.dim,
+        chordQualities.major,
+        chordQualities.minor,
+        chordQualities.minor,
+        chordQualities.major,
+        chordQualities.major,
     ],
 }
 
@@ -266,62 +228,11 @@ export const getAccidentalFromNoteString = (noteString) => {
     return accidentals.natural;
 }
 
-export const buildKeys = (keyQuality) => {
-    let allKeys = {};
-    for (let scale of allFilteredScales[keyQuality]) {
-        // Build key
-        let chords = [];
-        let keyName = ((keyQuality == 'major') ? scale[0] : scale[0] + "m");
-        for (let noteString of scale) {
-            //Build chord
-            let noteInterval = scale.indexOf(noteString);
-            let noteQuality = keyFormulas[keyQuality][noteInterval];
-            let chord = {
-                nashvilleRoman: nashvilleNumbers.roman[noteInterval],
-                nashvilleArabic: nashvilleNumbers.arabic[noteInterval],
-                chordFullName: noteString + " " + noteQuality.fullName,
-                chordAbbreviation: noteString + noteQuality.textAbbreviation,
-                chordQualityFull: noteQuality.fullName,
-                chordQualityAbbreviation: noteQuality.textAbbreviation,
-                baseNote: noteString,
-                accidental: getAccidentalFromNoteString(noteString),
-            };
-            chords.push(chord);
-        }
-        allKeys[keyName] = {
-            keyName: chords[0].chordAbbreviation,
-            keyQuality: keyQuality,
-            chords: chords,
-        };
-    }
-    return allKeys;
-}
+// TODO: Question: Is there a better way to handle this process (constant generated from function).
+// TODO: Replace build Function with closure for this kind of function.
+export const allMinorScales = buildRelativeMinorScales();
 
-//TODO: replace usages of this with allKeyGroups.x
-export const majorKeys = buildKeys('major');
-
-export const minorKeys = buildKeys('minor');
-
-export const allKeyGroups = {
-    major: buildKeys('major'),
-    minor: buildKeys('minor'),
-}
-
-export const allKeyQualities = Object.keys(allKeyGroups);
-
-export const filteredKeyGroups = () => {
-    return filterKeyGroupsBySettings();
-}
-
-// TODO: Use Settings form data for this function's argument
-export const filterKeyGroupsBySettings = (allowedGroups=['major','minor']) => {
-    let filteredKeyGroups = {};
-    for (let groupName in allKeyGroups) {
-        if (isInArray(groupName, allowedGroups)) {
-            Object.assign(filteredKeyGroups, allKeyGroups[groupName]);
-        }
-    }
-    return filteredKeyGroups;
-}
-
-export const currentKeys = filteredKeyGroups();
+export const allScales = {
+    major: allMajorScales,
+    minor: allMinorScales,
+};

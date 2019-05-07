@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import {currentKeys, majorKeys, nashvilleNumbers} from "../../Constants";
-import {getAllDistinctChords} from "../../RandomKeyGenerator";
 
 class Answer extends Component {
     constructor(props) {
