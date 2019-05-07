@@ -1,4 +1,12 @@
 // Export is a node thing but also a webpack thing... TODO: research export
+
+export const isInArray = (needle, haystack) => {
+    if (haystack.indexOf(needle) > -1) {
+        return true;
+    }
+    return false;
+};
+
 export const chordQualities = {
     major: {
         fullName: "major",
@@ -96,7 +104,7 @@ export const nashvilleNumbers = {
     roman: ['I','II','III','IV','V','VI','VII'],
     };
 
-export const majorScales = [
+export const allMajorScales = [
         // C
         [ 'C', 'D', 'E', 'F', 'G', 'A', 'B' ],
 
@@ -138,10 +146,6 @@ export const majorScales = [
 
     ];
 
-export const filterMajorScalesByAccidental = () => {
-
-}
-
 export const majorScaleToMinorScale = (majorScale) => {
     let minorScale = Array.from(majorScale);
     for (let i =0; i<2; i++) {
@@ -152,7 +156,7 @@ export const majorScaleToMinorScale = (majorScale) => {
 
 export const buildRelativeMinorScales = () => {
     let minorScalesContainer = [];
-    for (let majorScale of majorScales) {
+    for (let majorScale of allMajorScales) {
         minorScalesContainer.push(majorScaleToMinorScale(majorScale));
     }
     return minorScalesContainer;
@@ -160,11 +164,40 @@ export const buildRelativeMinorScales = () => {
 
 // TODO: Question: Is there a better way to handle this process (constant generated from function).
 // TODO: Replace build Function with closure for this kind of function.
-export const minorScales = buildRelativeMinorScales();
+export const allMinorScales = buildRelativeMinorScales();
 
 export const allScales = {
-    major: majorScales,
-    minor: minorScales,
+    major: allMajorScales,
+    minor: allMinorScales,
+};
+
+// TODO: Use Settings Form data for this function's argument
+export const filterScalesByAccidental = (scaleQuality, allowedAccidentals = ['sharp', 'natural', 'flat']) => {
+    let filteredScales = [];
+    // TODO: Refactor this to a single if with all conditions in a single test
+    allScales[scaleQuality].forEach( function (scale) {
+        if ((scale[0].includes('#')) && isInArray('sharp', allowedAccidentals)){
+            filteredScales.push(scale);
+            console.log ("keeping sharp scale "  + scale[0])
+        }
+        else if ((scale[0].includes('b')) && isInArray('flat', allowedAccidentals)){
+            filteredScales.push(scale);
+            console.log ("keeping flat scale "  + scale[0])
+        }
+        else if ( ((!scale[0].includes('#')) && (!scale[0].includes('b'))) && isInArray('natural', allowedAccidentals)){
+            console.log ("keeping natural scale "  + scale[0])
+            filteredScales.push(scale);
+        }
+    });
+    return filteredScales;
+}
+
+export const filteredMajorScales = filterScalesByAccidental('major');
+export const filteredMinorScales = filterScalesByAccidental('minor');
+
+export const allFilteredScales = {
+    major: filteredMajorScales,
+    minor: filteredMinorScales,
 };
 
 export const keyFormulas = {
@@ -214,7 +247,7 @@ export const getAccidentalFromNoteString = (noteString) => {
 
 export const buildKeys = (keyQuality) => {
     let allKeys = {};
-    for (let scale of allScales[keyQuality]) {
+    for (let scale of allFilteredScales[keyQuality]) {
         // Build key
         let chords = [];
         let keyName = ((keyQuality == 'major') ? scale[0] : scale[0] + "m");
@@ -257,15 +290,8 @@ export const filteredKeyGroups = () => {
     return filterKeyGroupsBySettings();
 }
 
-export const isInArray = (needle, haystack) => {
-    if (haystack.indexOf(needle) > -1) {
-        return true;
-    }
-    return false;
-};
-
 // TODO: Use Settings form data for this function's argument
-export const filterKeyGroupsBySettings = (allowedGroups=['major']) => {
+export const filterKeyGroupsBySettings = (allowedGroups=['major','minor']) => {
     let filteredKeyGroups = {};
     for (let groupName in allKeyGroups) {
         if (isInArray(groupName, allowedGroups)) {
@@ -273,17 +299,6 @@ export const filterKeyGroupsBySettings = (allowedGroups=['major']) => {
         }
     }
     return filteredKeyGroups;
-}
-
-// TODO: Use config to determine which source objects are used in parameter.
-// TODO: filter this functions output by selection in the Settings pane (key quality, single keys, sharp/flat keys only).
-// TODO: When building the Settings Pane, start with indvidual selections only then build the UI elements to select 'preset groups' (Similar to Chord Circle)
-export const getCurrentKeys = (keyQualityConfigSettings=[majorKeys,minorKeys]) => {
-    let currentKeys = {};
-    for (let selectedKeyQuality of keyQualityConfigSettings) {
-        currentKeys = Object.assign(currentKeys, selectedKeyQuality);
-    }
-    return currentKeys;
 }
 
 export const currentKeys = filteredKeyGroups();
