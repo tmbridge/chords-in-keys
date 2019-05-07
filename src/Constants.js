@@ -208,16 +208,16 @@ export const getAccidentalFromNoteString = (noteString) => {
     return accidentals.natural;
 }
 
-export const buildKeys = (keyQuality) => {
+export const buildKeys = (keyQualityString) => {
     let allKeys = {};
-    for (let scale of allScales[keyQuality]) {
+    for (let scale of allScales[keyQualityString]) {
         // Build key
         let chords = [];
-        let keyName = ((keyQuality == 'major') ? scale[0] : scale[0] + "m");
+        let keyName = ((keyQualityString == 'major') ? scale[0] : scale[0] + "m");
         for (let noteString of scale) {
             //Build chord
             let noteInterval = scale.indexOf(noteString);
-            let noteQuality = keyFormulas[keyQuality][noteInterval];
+            let noteQuality = keyFormulas[keyQualityString][noteInterval];
             let chord = {
                 nashvilleRoman: nashvilleNumbers.roman[noteInterval],
                 nashvilleArabic: nashvilleNumbers.arabic[noteInterval],
@@ -232,7 +232,7 @@ export const buildKeys = (keyQuality) => {
         }
         allKeys[keyName] = {
             keyName: chords[0].chordAbbreviation,
-            keyQuality: keyQuality,
+            keyQualityString: keyQualityString,
             chords: chords,
         };
     }
@@ -247,17 +247,101 @@ export const minorKeys = buildKeys('minor');
 export const keyGroups = {
     major: buildKeys('major'),
     minor: buildKeys('minor'),
-}
+};
 
 // TODO: Use config to determine which source objects are used in parameter.
 // TODO: filter this functions output by selection in the Settings pane (key quality, single keys, sharp/flat keys only).
 // TODO: When building the Settings Pane, start with indvidual selections only then build the UI elements to select 'preset groups' (Similar to Chord Circle)
-export const getCurrentKeys = (keyQualityConfigSettings=[majorKeys,minorKeys]) => {
-    let currentKeys = {};
-    for (let selectedKeyQuality of keyQualityConfigSettings) {
-        currentKeys = Object.assign(currentKeys, selectedKeyQuality);
+// TODO: Refactor this to getAllKeys
+export const allKeys = (function () {
+    let flattenedKeys = {};
+    for (let keyGroupIndex of Object.keys(keyGroups)) {
+        flattenedKeys = Object.assign(flattenedKeys, keyGroups[keyGroupIndex]);
     }
-    return currentKeys;
-}
+    return flattenedKeys;
+})();
 
-export const currentKeys = getCurrentKeys();
+export const filterKeysBySettings = (sourceKeySet, settings = {allowedKeyGroups: [majorKeys, minorKeys], allowedKeyRootAccidentals: [accidentals.natural, accidentals.sharp, accidentals.flat]}) => {
+    let flattenedKeys = {};
+    flattenedKeys = Object.assign(flattenedKeys, sourceKeySet);
+    console.log("flattenedKeys");
+    console.log(flattenedKeys);
+    let output = ( Object.keys(flattenedKeys).map((keyName,index) => {
+        console.log(flattenedKeys);
+        console.log(flattenedKeys[keyName]);
+        let tryKey = flattenedKeys[keyName];
+        let newKeys = {};
+        console.log("keyGroups[tryKey.keyQualityString]");
+        console.log(keyGroups[tryKey.keyQualityString]);
+        console.log("settings.allowedKeyGroups");
+        console.log(settings.allowedKeyGroups);
+        if(1) {
+        //if ((keyGroups[tryKey.keyQualityString] in settings.allowedKeyGroups)) {//} && (tryKey.chords[0].accidental in settings.allowedKeyRootAccidentals)) {
+            console.log(tryKey);
+            console.log(" is in!");
+            if (tryKey !== undefined) {
+                return Object.assign(newKeys, tryKey);
+            }
+        }
+    }));
+    console.log("filteredKeys");
+    console.log(Object.assign({}, output));
+    return Object.assign({}, output);
+
+
+    /*let currentKeys = {};
+    for (let selectedKeyQuality of settings) {
+        currentKeys = Object.assign(currentKeys, selectedKeyQuality);
+    }*/
+};
+
+export const allSelectedKeys = (function () {
+    return filterKeysBySettings(allKeys);
+})();
+
+//console.log(filterKeysBySettings());
+
+export const containsObject = (obj, list) => {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i] === obj) {
+            return true;
+        }
+    }
+
+    return true;
+};
+
+/*export const getCurrentKeys = (settings = {
+    keyGroups: [majorKeys,minorKeys],
+    keyRootAccidentals: [accidentals.natural, accidentals.sharp, accidentals.flat]
+}) => {
+    let allSelectedKeys = {};
+    console.log("settings.keyGroups:");
+    console.log(settings.keyGroups);
+    for (let selectedKeyGroups of settings.keyGroups) {
+        console.log("selectedKeyGroups:");
+        console.log(selectedKeyGroups);
+        for (let x of Object.keys(selectedKeyGroups)) {
+            console.log("x:");
+            console.log(selectedKeyGroups[x]);
+            // Only use the key if its root's accidental is in the settings.keyRootAccidentals array.
+            console.log("Chords Accidental:");
+            console.log(selectedKeyGroups[x].chords[0].accidental);
+            console.log("Settings Accidentals");
+            console.log(settings.keyRootAccidentals);
+            // TODO: how to check if the chord accidental is in the keyRootAccidentals array
+            if (containsObject(selectedKeyGroups[x].chords[0].accidental, settings.keyRootAccidentals )) {
+                console.log("here");
+                allSelectedKeys = Object.assign(allSelectedKeys, selectedKeyGroups[x]);
+            }
+        }
+    }
+    console.log("allSelectedKeys:");
+    console.log(allSelectedKeys);
+    return allSelectedKeys;
+}*/
+
+
+// TODO: Refactor this to allSelectedKeys
+//export const allSelectedKeys = getCurrentKeys({keyGroups: [majorKeys, minorKeys],keyRootAccidentals: [accidentals.natural, accidentals.sharp, accidentals.flat]});
