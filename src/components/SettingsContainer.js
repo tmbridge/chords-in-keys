@@ -4,30 +4,10 @@ import Answer from "./Answer/Answer";
 import {accidentals} from "../Constants";
 
 class SettingsContainer extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            major: 'true',
-            minor: 'true',
-            sharp: 'true',
-            flat: 'true',
-            natural: 'true',
-        }
-
-        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    }
-
-    // TODO: Put this State into Sentence then pass it via prop into this Component's onChange?
-    // TODO: Also move the filtering functions in Constants.js to Sentence component and keep the set of filtered keys as state therein?  This will allow this Checkbox change to directly affect the filtered keys in Sentence's state
-    handleCheckboxChange = (field) => (e) => {
-        this.setState({
-          [field]: e.target.checked
-      });
-    }
-
     render() {
-        let { allKeyQualities } = this.props;
+        let { settings, allKeyQualities, handleCheckboxChange } = this.props;
+        console.log("settings");
+        console.log(settings);
         return (
             <div>
                 <p>
@@ -38,8 +18,8 @@ class SettingsContainer extends Component {
                                 type='checkbox'
                                 settingGroup='keyQualities'
                                 value={quality}
-                                checked={this.state[quality]}
-                                onChange = {this.handleCheckboxChange([quality])}
+                                checked={settings['keyQualities'][quality]}
+                                onChange = {handleCheckboxChange([quality])}
                             />
                             <label>{quality}</label>
 
@@ -54,8 +34,8 @@ class SettingsContainer extends Component {
                                 type='checkbox'
                                 settingGroup='keyAccidentals'
                                 value={accidental}
-                                checked={this.state[accidental]}
-                                onChange = {this.handleCheckboxChange([accidental])}
+                                checked={settings['keyAccidentals'][accidental]}
+                                onChange = {handleCheckboxChange([accidental])}
                             />
                             <label>{accidental}</label>
                         </div>
