@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {accidentals} from "../Constants";
 
-class SettingsContainer extends Component {
+class Settings extends Component {
     render() {
         let { settings, handleCheckboxChange } = this.props;
         return (
@@ -41,4 +41,4 @@ class SettingsContainer extends Component {
     }
 }
 
-export default SettingsContainer;
+export default Settings;

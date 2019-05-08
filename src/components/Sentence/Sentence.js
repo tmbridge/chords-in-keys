@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SentenceChord from "./SentenceChord.js";
 import SentenceNashvilleNumber from "./SentenceNashvilleNumber.js";
 import SentenceKey from "./SentenceKey.js";
-import AnswerContainer from "../Answer/AnswerContainer";
+import Answer from "../Answer/Answer";
 
 // Constants
 import { getRandomKey, getRandomChordFromKey } from "../../RandomKeyGenerator.js";
@@ -61,7 +61,7 @@ class Sentence extends Component {
                 <div>
                         <SentenceChord value={this.getSentenceValue('chord')} /> is the <SentenceNashvilleNumber value={this.getSentenceValue('number')} /> in the key of <SentenceKey value={this.getSentenceValue('key')} />
                         <br/>
-                        <AnswerContainer currentKeys={currentKeys} currentKey={currentKey} currentChord={currentChord} currentQuestion={currentQuestion} onSkipClicked={() => this.next()}/>
+                        <Answer currentKeys={currentKeys} currentKey={currentKey} currentChord={currentChord} currentQuestion={currentQuestion} onSkipClicked={() => this.next()}/>
                 </div>
         );
     }

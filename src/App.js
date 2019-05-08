@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SentenceContainer from './components/Sentence/SentenceContainer.js'
-import SettingsContainer from './components/SettingsContainer.js'
+import Sentence from './components/Sentence/Sentence'
+import Settings from './components/Settings'
 import './App.css';
 import {allScales, getAccidentalFromNoteString, isInArray, keyFormulas, nashvilleNumbers} from "./Constants";
 
@@ -135,11 +135,11 @@ class App extends Component
         return (
             <div className="App">
                 <header className="App-header">
-                    <SentenceContainer currentKeys={currentKeys} />
+                    <Sentence currentKeys={currentKeys} />
                 </header>
                 <div>
                 </div>
-                <SettingsContainer settings={settings} handleCheckboxChange={() => this.handleCheckboxChange()} allKeyQualities={this.allKeyQualities}/>
+                <Settings settings={settings} handleCheckboxChange={() => this.handleCheckboxChange()} allKeyQualities={this.allKeyQualities}/>
             </div>
         );
     }

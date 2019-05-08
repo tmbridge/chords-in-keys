@@ -116,8 +116,7 @@ export const baseNotes = ['A','B','C','D','E','F','G'];
 
 // Nashville Numbers
 export const nashvilleNumbers = {
-    // TODO: make this a nested function that generates 1-7
-    arabic: [1, 2, 3, 4, 5, 6, 7],
+    arabic: Array.from(Array(7).keys(), n => n + 1),
     roman: ['I','II','III','IV','V','VI','VII'],
     };
 
@@ -224,8 +223,6 @@ export const getAccidentalFromNoteString = (noteString) => {
     return accidentals.natural;
 }
 
-// TODO: Question: Is there a better way to handle this process (constant generated from function).
-// TODO: Replace build Function with closure for this kind of function.
 export const allMinorScales = buildRelativeMinorScales();
 
 export const allScales = {
