@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Answer from "./Answer";
 import VerdictContainer from "../VerdictContainer"
 
 // Constants
 import { nashvilleNumbers } from "../../Constants";
-import {getAllDistinctChords, getRandomChordFromKey} from "../../RandomKeyGenerator";
+import {getAllDistinctChords} from "../../RandomKeyGenerator";
 
 class AnswerContainer extends Component {
     state = {
@@ -29,38 +28,34 @@ class AnswerContainer extends Component {
                 switch (x) {
                     case 'chord':
                         return currentChord.chordAbbreviation;
-                        break;
                     case 'number':
                         return currentChord.nashvilleRoman;
-                        break;
                     case 'key':
                         return currentKey.keyName;
-                        break;
+                    default:
+                        return 'Uhoh';
                 }
             }(currentQuestion)),
         };
     }
 
     getCurrentPossibleAnswers = () => {
-        let { derivedCurrentQuestion, derivedCurrentKey } = this.state;
+        let { derivedCurrentQuestion } = this.state;
         let { currentKeys } = this.props;
         switch (derivedCurrentQuestion) {
             case 'chord':
                 return getAllDistinctChords(currentKeys).sort();
-                break;
             case 'number':
                 return nashvilleNumbers.roman.sort();
-                break;
             case 'key':
                 return Object.keys(currentKeys).sort();
-                break;
+            default:
+                return 'Uhoh';
         }
     }
 
     checkGuess(guess) {
         let { derivedCurrentAnswer } = this.state;
-        // Compare guess to derivedAnswer.
-        // Return true or false accordingly.
         if (guess === derivedCurrentAnswer) {
             this.setState({
                 guessResult: 1,
@@ -78,9 +73,9 @@ class AnswerContainer extends Component {
         return (
             <div>
                 <div className="answer-container">
-                {currentPossibleAnswers.map((key, index) => (
-                    // TODO: Change UI for selectiong answer.  Grid, Wheel, tree?
-                    <Answer onGuess={(guessToCheck) => this.checkGuess(guessToCheck)} value={key} />
+                {currentPossibleAnswers.map((key) => (
+                    // TODO: Change UI for selecting answer.  Grid, Wheel, tree?
+                    <Answer className="answer" key={key} onGuess={(guessToCheck) => this.checkGuess(guessToCheck)} value={key} />
                 ))}
                 </div>
                 <div className="skip-container">

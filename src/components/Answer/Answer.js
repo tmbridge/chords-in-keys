@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class Answer extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     makeGuess(guessToCheck) {
         let { onGuess } = this.props;
         onGuess(guessToCheck.value);

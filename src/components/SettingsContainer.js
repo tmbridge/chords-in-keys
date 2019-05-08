@@ -1,46 +1,41 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import Answer from "./Answer/Answer";
 import {accidentals} from "../Constants";
 
 class SettingsContainer extends Component {
     render() {
-        let { settings, allKeyQualities, handleCheckboxChange } = this.props;
-        console.log("settings");
-        console.log(settings);
+        let { settings, handleCheckboxChange } = this.props;
         return (
-            <div>
-                <p>
-                    {allKeyQualities.map((quality, index) => (
-                        <div>
+            <div className={'settings-container'}>
+                    {settings.allKeyQualities.map((quality) => (
+                        <div className='settings-qualities'  key={'quality' + quality}>
                             <input
                                 className='setting-checkbox'
                                 type='checkbox'
-                                settingGroup='keyQualities'
+                                settinggroup='keyQualities'
                                 value={quality}
                                 checked={settings['keyQualities'][quality]}
                                 onChange = {handleCheckboxChange([quality])}
+                                key={quality}
                             />
                             <label>{quality}</label>
 
                         </div>
                     ))}
-                </p>
-                <p>
-                    {Object.keys(accidentals).map((accidental, index) => (
-                        <div>
+                    <br/><br/>
+                    {Object.keys(accidentals).map((accidental) => (
+                        <div className='settings-accidentals'  key={'accidental' + accidental}>
                             <input
                                 className='setting-checkbox'
                                 type='checkbox'
-                                settingGroup='keyAccidentals'
+                                settinggroup='keyAccidentals'
                                 value={accidental}
                                 checked={settings['keyAccidentals'][accidental]}
                                 onChange = {handleCheckboxChange([accidental])}
+                                key={accidental}
                             />
                             <label>{accidental}</label>
                         </div>
                     ))}
-                </p>
             </div>
         );
     }

@@ -1,7 +1,3 @@
-// Export is a node thing but also a webpack thing... TODO: research export
-
-import React from "react";
-
 /*
 TODO LIST:
 (e.g. <ul>
