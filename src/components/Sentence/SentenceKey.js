@@ -1,6 +1,6 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 
-class SentenceKey extends Component {
+class SentenceKey extends PureComponent {
     render() {
         return this.props.value;
     }

@@ -1,6 +1,6 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 
-class SentenceNashvilleNumber extends Component {
+class SentenceNashvilleNumber extends PureComponent {
     render() {
         return this.props.value;
     }

@@ -1,6 +1,6 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 
-class SentenceChord extends Component {
+class SentenceChord extends PureComponent {
     render() {
         return this.props.value;
     }
