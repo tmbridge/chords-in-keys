@@ -12,7 +12,7 @@ class App extends Component
     }
 
     resetCurrentKeysByFilters() {
-        let filterScalesByAccidental = (scaleContainer, allowedAccidentals) => {
+        let removeScalesBySettingsKeyAccidental = (scaleContainer, allowedAccidentals) => {
             let filteredScales = [];
             // TODO: Refactor this to a single if with all conditions in a single test
             // TODO: Refactor this to use accidentals object instead of string matching
@@ -30,8 +30,8 @@ class App extends Component
             return filteredScales;
         }
 
-        let filteredMajorScales = filterScalesByAccidental(allScales.major, getAllKeysWithTrueValue(this.state.keyAccidentals));
-        let filteredMinorScales = filterScalesByAccidental(allScales.minor, getAllKeysWithTrueValue(this.state.keyAccidentals));
+        let filteredMajorScales = removeScalesBySettingsKeyAccidental(allScales.major, getAllKeysWithTrueValue(this.state.keyAccidentals));
+        let filteredMinorScales = removeScalesBySettingsKeyAccidental(allScales.minor, getAllKeysWithTrueValue(this.state.keyAccidentals));
 
         let allFilteredScales = {
             major: filteredMajorScales,
@@ -74,7 +74,7 @@ class App extends Component
             minor: buildFilteredKeys('minor'),
         }
 
-        let filterKeyGroupsBySettings = (allowedGroups = ['major', 'minor']) => {
+        let removeKeyGroupsBySettingsKeyQuality = (allowedGroups = ['major', 'minor']) => {
             let filteredKeyGroups = {};
             for (let groupName in allKeyGroupsWithFilteredKeys) {
                 if (isInArray(groupName, allowedGroups)) {
@@ -85,7 +85,7 @@ class App extends Component
         }
 
         this.setState({
-            currentKeys: filterKeyGroupsBySettings(getAllKeysWithTrueValue(this.state.keyQualities)),
+            currentKeys: removeKeyGroupsBySettingsKeyQuality(getAllKeysWithTrueValue(this.state.keyQualities)),
             allKeyQualities: Object.keys(allKeyGroupsWithFilteredKeys),
         })
     }
