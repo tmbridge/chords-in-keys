@@ -128,7 +128,11 @@ class App extends Component
                 </header>
                 <div>
                 </div>
-                <Settings settings={settings} handleCheckboxChange={() => this.handleCheckboxChange()} allKeyQualities={this.allKeyQualities}/>
+                <Settings
+                    settings={settings}
+                    handleCheckboxChange={() => this.handleCheckboxChange()}
+                    allKeyQualities={this.allKeyQualities}
+                />
             </div>
         );
     }

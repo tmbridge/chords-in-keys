@@ -1,22 +1,3 @@
-/*
-TODO LIST:
-(e.g. <ul>
-            TODO:
-            <li>- SHow guess value in setence with green or red correct/incorrect</li>
-                <li>- settings/config</li>
-    <li>Settings Form</li>
-    <li>Refactor functions out of Constants into requisite components</li>
-    <li>Done - filter randomizer for specific key qualities,</li>
-    <li>done - filter randomizer for specific key accidentals,</li>
-    <li>filter randomizer for specfic keys,</li>
-    <li>Done - choose which of the three variables (Key, Number, Chord) get randomly 'blanked',</li>
-    <li>Roman or Arabic Numerals (backend Done, need settings & FE),</li>
-    <li>time allowed per sentence,</li>
-    <li>Number of attempts before failure</li>
-    <li>etc.</li>
-</ul>
-*/
-
 export const isInArray = (needle, haystack) => {
     if (haystack.indexOf(needle) > -1) {
         return true;
