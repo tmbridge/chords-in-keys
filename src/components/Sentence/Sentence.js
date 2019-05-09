@@ -59,9 +59,29 @@ class Sentence extends Component {
         let { currentKeys } = this.props;
         return (
                 <div>
-                        <SentenceChord value={this.getSentenceValue('chord')} /> is the <SentenceNashvilleNumber value={this.getSentenceValue('number')} /> in the key of <SentenceKey value={this.getSentenceValue('key')} />
+                        <SentenceChord
+                            value={this.getSentenceValue('chord')}
+                        />
+                        <div className='sentence-text-static'>
+                            is the
+                        </div>
+                        <SentenceNashvilleNumber
+                            value={this.getSentenceValue('number')}
+                        />
+                        <div className='sentence-text-static'>
+                            in the key of
+                        </div>
+                        <SentenceKey
+                            value={this.getSentenceValue('key')}
+                        />
                         <br/>
-                        <Answer currentKeys={currentKeys} currentKey={currentKey} currentChord={currentChord} currentQuestion={currentQuestion} onSkipClicked={() => this.next()}/>
+                        <Answer
+                            currentKeys={currentKeys}
+                            currentKey={currentKey}
+                            currentChord={currentChord}
+                            currentQuestion={currentQuestion}
+                            onSkipClicked={() => this.next()}
+                        />
                 </div>
         );
     }
