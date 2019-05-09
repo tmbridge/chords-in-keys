@@ -2,28 +2,17 @@ import React, { Component } from 'react';
 import Sentence from './components/Sentence/Sentence'
 import Settings from './components/Settings'
 import './App.css';
-import {allScales, getAccidentalFromNoteString, isInArray, keyFormulas, nashvilleNumbers} from "./Constants";
+import {allScales, getAccidentalFromNoteString, isInArray, getAllKeysWithTrueValue, keyFormulas, nashvilleNumbers} from "./Constants";
 
 class App extends Component
 {
-
-    getAllKeysWithTrueValue = (obj) => {
-        let out = [];
-        let keys = Object.keys(obj);
-        for (let i of keys) {
-            if (obj[i] === true){
-                out.push(i);
-            }
-        }
-        return out;
-    }
 
     componentWillMount() {
         this.resetCurrentKeysByFilters();
     }
 
     resetCurrentKeysByFilters() {
-        let filterScalesByAccidental = (scaleContainer, allowedAccidentals = ['sharp', 'natural', 'flat']) => {
+        let filterScalesByAccidental = (scaleContainer, allowedAccidentals) => {
             let filteredScales = [];
             // TODO: Refactor this to a single if with all conditions in a single test
             // TODO: Refactor this to use accidentals object instead of string matching
@@ -41,8 +30,8 @@ class App extends Component
             return filteredScales;
         }
 
-        let filteredMajorScales = filterScalesByAccidental(allScales.major, this.getAllKeysWithTrueValue(this.state.keyAccidentals));
-        let filteredMinorScales = filterScalesByAccidental(allScales.minor, this.getAllKeysWithTrueValue(this.state.keyAccidentals));
+        let filteredMajorScales = filterScalesByAccidental(allScales.major, getAllKeysWithTrueValue(this.state.keyAccidentals));
+        let filteredMinorScales = filterScalesByAccidental(allScales.minor, getAllKeysWithTrueValue(this.state.keyAccidentals));
 
         let allFilteredScales = {
             major: filteredMajorScales,
@@ -96,7 +85,7 @@ class App extends Component
         }
 
         this.setState({
-            currentKeys: filterKeyGroupsBySettings(this.getAllKeysWithTrueValue(this.state.keyQualities)),
+            currentKeys: filterKeyGroupsBySettings(getAllKeysWithTrueValue(this.state.keyQualities)),
             allKeyQualities: Object.keys(allKeyGroupsWithFilteredKeys),
         })
     }

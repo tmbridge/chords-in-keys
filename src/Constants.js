@@ -24,6 +24,17 @@ export const isInArray = (needle, haystack) => {
     return false;
 };
 
+export const getAllKeysWithTrueValue = (obj) => {
+    let out = [];
+    let keys = Object.keys(obj);
+    for (let i of keys) {
+        if (obj[i] === true){
+            out.push(i);
+        }
+    }
+    return out;
+}
+
 export const chordQualities = {
     major: {
         fullName: "major",
