@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Sentence from './components/Sentence/Sentence'
 import Settings from './components/Settings'
 import './App.css';
-import {allScales, getAccidentalFromNoteString, getAllKeysWithTrueValue, keyFormulas, nashvilleNumbers, keyGroups} from "./Constants";
+import {allScales, getAccidentalFromNoteString, getAllKeysWithTrueValue, keyFormulas, nashvilleNumbers, keyGroups} from "./constants/Constants";
 
 class App extends Component
 {

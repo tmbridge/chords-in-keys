@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import VerdictContainer from "../VerdictContainer"
 
 // Constants
-import { nashvilleNumbers } from "../../Constants";
-import {getAllDistinctChords} from "../../RandomKeyGenerator";
+import { nashvilleNumbers } from "../../constants/Constants";
+import {getAllDistinctChords} from "../../lib/helpers/random";
 
 class Answer extends Component {
     state = {
@@ -71,7 +71,9 @@ class Answer extends Component {
                 ))}
                 </div>
                 <div className="skip-container">
-                    <button onClick={this.props.onSkipClicked}>Next</button>
+                    <button onClick={this.props.onSkipClicked}>
+                        Next
+                    </button>
                 </div>
                 <div className="verdict-container">
                     <VerdictContainer value={this.state.guessResult}/>

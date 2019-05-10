@@ -5,8 +5,8 @@ import SentenceKey from "./SentenceKey.js";
 import Answer from "../Answer/Answer";
 
 // Constants
-import { getRandomKey, getRandomChordFromKey } from "../../RandomKeyGenerator.js";
-import {random} from "../../RandomKeyGenerator";
+import { getRandomKey, getRandomChordFromKey } from "../../lib/helpers/random.js";
+import {random} from "../../lib/helpers/random";
 
 class Sentence extends Component {
 
@@ -30,7 +30,7 @@ class Sentence extends Component {
 
     getSentenceValue(term) {
         let { currentKey, currentChord, currentQuestion } = this.state;
-        let blankString = "_____"
+        const blankString = "_____"
         switch (term) {
             case 'chord':
                 return ((term !== currentQuestion) ? currentChord.chordAbbreviation : blankString);

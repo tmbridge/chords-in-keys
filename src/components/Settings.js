@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {accidentals} from "../Constants";
+import {accidentals} from "../constants/Constants";
 
 class Settings extends Component {
     render() {
