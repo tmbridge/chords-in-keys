@@ -1,10 +1,3 @@
-export const isInArray = (needle, haystack) => {
-    if (haystack.indexOf(needle) > -1) {
-        return true;
-    }
-    return false;
-};
-
 export const getAllKeysWithTrueValue = (obj) => {
     let out = [];
     let keys = Object.keys(obj);

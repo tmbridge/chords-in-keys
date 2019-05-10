@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Sentence from './components/Sentence/Sentence'
 import Settings from './components/Settings'
 import './App.css';
-import {allScales, getAccidentalFromNoteString, isInArray, getAllKeysWithTrueValue, keyFormulas, nashvilleNumbers, keyGroups} from "./Constants";
+import {allScales, getAccidentalFromNoteString, getAllKeysWithTrueValue, keyFormulas, nashvilleNumbers, keyGroups} from "./Constants";
 
 class App extends Component
 {
@@ -17,13 +17,13 @@ class App extends Component
             // TODO: Refactor this to a single if with all conditions in a single test
             // TODO: Refactor this to use accidentals object instead of string matching
             scaleContainer.forEach(function (scale) {
-                if ((scale[0].includes('#')) && isInArray('sharp', allowedAccidentals)) {
+                if ((scale[0].includes('#')) && (!scale[0].includes('b')) && allowedAccidentals.includes('sharp')) {
                     filteredScales.push(scale);
                 }
-                else if ((scale[0].includes('b')) && isInArray('flat', allowedAccidentals)) {
+                else if ((scale[0].includes('b')) && (!scale[0].includes('b')) && allowedAccidentals.includes('flat')) {
                     filteredScales.push(scale);
                 }
-                else if (((!scale[0].includes('#')) && (!scale[0].includes('b'))) && isInArray('natural', allowedAccidentals)) {
+                else if ((!scale[0].includes('#')) && (!scale[0].includes('b')) && allowedAccidentals.includes('natural')) {
                     filteredScales.push(scale);
                 }
             });
@@ -88,7 +88,7 @@ class App extends Component
         let removeKeyGroupsBySettingsKeyQuality = (allowedGroups = ['major', 'minor']) => {
             let filteredKeyGroups = {};
             for (let groupName in allKeyGroupsWithFilteredKeys) {
-                if (isInArray(groupName, allowedGroups)) {
+                if (allowedGroups.includes(groupName)) {
                     Object.assign(filteredKeyGroups, allKeyGroupsWithFilteredKeys[groupName]);
                 }
             }
