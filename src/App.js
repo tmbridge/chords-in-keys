@@ -38,12 +38,22 @@ class App extends Component
             minor: filteredMinorScales,
         };
 
+        let getKeyName = (keyQuality, scale) => {
+            switch (keyQuality) {
+                case 'major':
+                    return scale[0];
+                case 'minor':
+                    return `${scale[0]}m`;
+                default:
+                    return scale[0];
+            }
+        }
+
         let buildFilteredKeys = (keyQuality) => {
             let allKeys = {};
             for (let scale of allFilteredScales[keyQuality]) {
                 // Build key
                 let chords = [];
-                let keyName = ((keyQuality === 'major') ? scale[0] : scale[0] + "m");
                 for (let noteString of scale) {
                     //Build chord
                     let noteInterval = scale.indexOf(noteString);
@@ -60,7 +70,7 @@ class App extends Component
                     };
                     chords.push(chord);
                 }
-                allKeys[keyName] = {
+                allKeys[getKeyName(keyQuality, scale)] = {
                     keyName: chords[0].chordAbbreviation,
                     keyQuality: keyQuality,
                     chords: chords,
