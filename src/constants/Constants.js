@@ -158,13 +158,7 @@ export const majorScaleToMinorScale = (majorScale) => {
     return minorScale;
 }
 
-export const allMinorScales = function() {
-    let minorScalesContainer = [];
-    for (let majorScale of allMajorScales) {
-        minorScalesContainer.push(majorScaleToMinorScale(majorScale));
-    }
-    return minorScalesContainer;
-}();
+export const allMinorScales = allMajorScales.map(scale => majorScaleToMinorScale(scale));
 
 export const keyFormulas = {
     major : [
