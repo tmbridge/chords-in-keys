@@ -59,7 +59,7 @@ class App extends Component
                     let chord = {
                         nashvilleRoman: nashvilleNumbers.roman[noteInterval],
                         nashvilleArabic: nashvilleNumbers.arabic[noteInterval],
-                        chordFullName: noteString + " " + noteQuality.fullName,
+                        chordFullName: `${noteString}  ${noteQuality.fullName}`,
                         chordAbbreviation: noteString + noteQuality.textAbbreviation,
                         chordQualityFull: noteQuality.fullName,
                         chordQualityAbbreviation: noteQuality.textAbbreviation,
