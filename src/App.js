@@ -30,13 +30,11 @@ class App extends Component
             return filteredScales;
         }
 
-        let filteredMajorScales = removeScalesBySettingsKeyAccidental(allScales.major, getAllKeysWithTrueValue(this.state.keyAccidentals));
-        let filteredMinorScales = removeScalesBySettingsKeyAccidental(allScales.minor, getAllKeysWithTrueValue(this.state.keyAccidentals));
-
-        let allFilteredScales = {
-            major: filteredMajorScales,
-            minor: filteredMinorScales,
-        };
+        let allFilteredScales = function (accidentals) {
+            const out = {};
+            keyGroups.forEach(value => out[value] = removeScalesBySettingsKeyAccidental(allScales[value], getAllKeysWithTrueValue(accidentals)));
+            return out;
+        }(this.state.keyAccidentals);
 
         let getKeyName = (keyQuality, scale) => {
             switch (keyQuality) {

@@ -158,13 +158,13 @@ export const majorScaleToMinorScale = (majorScale) => {
     return minorScale;
 }
 
-export const buildRelativeMinorScales = () => {
+export const allMinorScales = function() {
     let minorScalesContainer = [];
     for (let majorScale of allMajorScales) {
         minorScalesContainer.push(majorScaleToMinorScale(majorScale));
     }
     return minorScalesContainer;
-}
+}();
 
 export const keyFormulas = {
     major : [
@@ -211,9 +211,20 @@ export const getAccidentalFromNoteString = (noteString) => {
     return accidentals.natural;
 }
 
-export const allMinorScales = buildRelativeMinorScales();
 
-export const allScales = {
-    major: allMajorScales,
-    minor: allMinorScales,
-};
+export const getScale = (scaleName) => {
+    switch (scaleName) {
+        case 'major':
+            return allMajorScales;
+        case 'minor':
+            return allMinorScales;
+        default:
+            return "UhOh!";
+    }
+}
+
+export const allScales = function () {
+    const out = {};
+    keyGroups.forEach(value => out[value] = getScale(value));
+    return out;
+}();
