@@ -7,9 +7,6 @@ import {getAllDistinctChords} from "../../RandomKeyGenerator";
 
 class Answer extends Component {
     state = {
-        derivedCurrentQuestion: '',
-        derivedCurrentKey: '',
-        derivedCurrentChord: '',
         guessResult: "N/A",
     }
 
@@ -17,12 +14,7 @@ class Answer extends Component {
     static getDerivedStateFromProps(props, state) {
         const { currentQuestion, currentKey, currentChord } = props;
         return {
-
-            // Trying to learn getDerivedStateFromProps here...
-            // TODO: Question: Can the first three of these just be referenced through props?
-            derivedCurrentQuestion: currentQuestion,
-            derivedCurrentKey: currentKey,
-            derivedCurrentChord: currentChord,
+            // TODO: Move this function up to App.js and pass it down via props.  This will likely allow removal of the props used in this function.
             derivedCurrentAnswer: (function (x) {
                 switch (x) {
                     case 'chord':
@@ -39,9 +31,8 @@ class Answer extends Component {
     }
 
     getCurrentPossibleAnswers = () => {
-        let { derivedCurrentQuestion } = this.state;
-        let { currentKeys } = this.props;
-        switch (derivedCurrentQuestion) {
+        let { currentQuestion, currentKeys } = this.props;
+        switch (currentQuestion) {
             case 'chord':
                 return getAllDistinctChords(currentKeys).sort();
             case 'number':
