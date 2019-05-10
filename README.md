@@ -11,6 +11,7 @@ TODO LIST:
     <li>Time allowed per sentence before hard failure</li>
     <li>Number of attempts before hard failure</li>
     <li>"Game-ification - Keep Score and Show a Timer.  Keep High Score."</li>
+    <li>Allow filtering by Chord/number/key.  So if you only want to study G#'s, or IV's, or a single Key. 
     <li>etc.</li>
 </ul>
 
