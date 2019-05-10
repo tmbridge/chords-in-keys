@@ -16,6 +16,9 @@ export const getAllKeysWithTrueValue = (obj) => {
     return out;
 }
 
+// Extend this when adding new keys to the app
+export const keyGroups = ['major', 'minor'];
+
 export const chordQualities = {
     major: {
         fullName: "major",

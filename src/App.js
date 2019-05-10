@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Sentence from './components/Sentence/Sentence'
 import Settings from './components/Settings'
 import './App.css';
-import {allScales, getAccidentalFromNoteString, isInArray, getAllKeysWithTrueValue, keyFormulas, nashvilleNumbers} from "./Constants";
+import {allScales, getAccidentalFromNoteString, isInArray, getAllKeysWithTrueValue, keyFormulas, nashvilleNumbers, keyGroups} from "./Constants";
 
 class App extends Component
 {
@@ -79,10 +79,11 @@ class App extends Component
             return allKeys;
         }
 
-        let allKeyGroupsWithFilteredKeys = {
-            major: buildFilteredKeys('major'),
-            minor: buildFilteredKeys('minor'),
-        }
+        let allKeyGroupsWithFilteredKeys = function () {
+            const out = {};
+            keyGroups.forEach(value => out[value] = buildFilteredKeys(value));
+            return out;
+        }();
 
         let removeKeyGroupsBySettingsKeyQuality = (allowedGroups = ['major', 'minor']) => {
             let filteredKeyGroups = {};
