@@ -13,19 +13,6 @@ export const getRandomKey = (currentKeys) => {
     return currentKeys[objectKeys[random(length)]];
 }
 
-export const getAllDistinctChords = (inKeys) => {
-    let allChords = [];
-    for (let key of Object.keys(inKeys)) {
-        let currentChords = inKeys[key].chords;
-        for (let index in currentChords) {
-            let currentChordAbbreviation = currentChords[index].chordAbbreviation;
-            allChords.push(currentChordAbbreviation);
-        }
-    }
-    // Dedupe before returning.
-    return Array.from(new Set(allChords));
-}
-
 // TODO: write/test this method
 /*export const getKeyByAbbreviation = (abbreviatedName) => {
     currentKeys.chords.find(abbreviatedName);

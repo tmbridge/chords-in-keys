@@ -10,7 +10,6 @@ class Answer extends Component {
         guessResult: "N/A",
     }
 
-
     static getDerivedStateFromProps(props, state) {
         const { currentQuestion, currentKey, currentChord } = props;
         return {
@@ -30,11 +29,24 @@ class Answer extends Component {
         };
     }
 
+    getAllDistinctChords = (inKeys) => {
+        let allChords = [];
+        for (let key of Object.keys(inKeys)) {
+            let currentChords = inKeys[key].chords;
+            for (let index in currentChords) {
+                let currentChordAbbreviation = currentChords[index].chordAbbreviation;
+                allChords.push(currentChordAbbreviation);
+            }
+        }
+        // Dedupe before returning.
+        return Array.from(new Set(allChords));
+    }
+
     getCurrentPossibleAnswers = () => {
         let { currentQuestion, currentKeys } = this.props;
         switch (currentQuestion) {
             case 'chord':
-                return getAllDistinctChords(currentKeys).sort();
+                return this.getAllDistinctChords(currentKeys).sort();
             case 'number':
                 return nashvilleNumbers.roman.sort();
             case 'key':
