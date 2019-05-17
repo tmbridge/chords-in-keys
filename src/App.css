@@ -31,3 +31,14 @@
     transform: rotate(360deg);
   }
 }
+
+.sentence-text-static {
+  font-size: 1rem;
+  margin: 15px;
+}
+
+.sentence-question {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px 0px 10px 0px;
+}

@@ -59,21 +59,27 @@ class Sentence extends Component {
         let { currentKeys } = this.props;
         return (
                 <div>
+                    <span className='sentence-question'>
                         <SentenceChord
                             value={this.getSentenceValue('chord')}
                         />
-                        <div className='sentence-text-static'>
-                            is the
-                        </div>
+                    </span>
+                    <span className='sentence-text-static'>
+                        is the
+                    </span>
+                    <span className='sentence-question'>
                         <SentenceNashvilleNumber
                             value={this.getSentenceValue('number')}
                         />
-                        <div className='sentence-text-static'>
-                            in the key of
-                        </div>
+                    </span>
+                    <span className='sentence-text-static'>
+                        in the key of
+                    </span>
+                    <span className='sentence-question'>
                         <SentenceKey
                             value={this.getSentenceValue('key')}
                         />
+                    </span>
                         <br/>
                         <Answer
                             currentKeys={currentKeys}
