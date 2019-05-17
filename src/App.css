@@ -42,3 +42,11 @@
   font-weight: bold;
   margin: 10px 0px 10px 0px;
 }
+
+.answer-button {
+  margin: 5px;
+}
+
+.skip-container {
+  margin: 20px 0px 15px 0px;
+}

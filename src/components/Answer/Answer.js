@@ -77,7 +77,10 @@ class Answer extends Component {
                 <div className="answer-container">
                 {currentChoices.map((choice) => (
                     // TODO: Change UI for selecting answer.  Grid, Wheel, tree?
-                    <button className="answer-button" key={choice} onClick={() => this.checkGuess({choice})} value={choice}>
+                    <button className="answer-button"
+                            key={choice}
+                            onClick={() => this.checkGuess({choice})}
+                            value={choice}>
                         { choice }
                     </button>
                 ))}
