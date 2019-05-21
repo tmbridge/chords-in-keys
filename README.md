@@ -5,6 +5,7 @@ TODO LIST:
     <li>Done - Filter randomizer for specific key accidentals</li>
     <li>Done - Filter randomizer for specfic keys</li>
     <li>Done - choose which of the three variables (Key, Number, Chord) get randomly 'blanked'</li>
+    <li>Upper/Lower case roman numbers.</li>
     <li>Show guess value within sentence with green or red correct/incorrect</li>
     <li>Setting to allow only 1 of the 3 questions (chord, number, key)
     <li>Global Setting for Roman or Arabic Numerals (backend Done, need settings & FE)</li>

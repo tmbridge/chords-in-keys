@@ -1,35 +1,13 @@
 import React, { Component } from 'react';
-import SentenceChord from "./SentenceChord.js";
-import SentenceNashvilleNumber from "./SentenceNashvilleNumber.js";
-import SentenceKey from "./SentenceKey.js";
+import SentenceChord from "./SentenceChord";
+import SentenceNashvilleNumber from "./SentenceNashvilleNumber";
+import SentenceKey from "./SentenceKey";
 import Answer from "../Answer/Answer";
-
-// Constants
-import { getRandomKey, getRandomChordFromKey } from "../../lib/helpers/random.js";
-import {random} from "../../lib/helpers/random";
 
 class Sentence extends Component {
 
-    possibleQuestions = ['chord','number','key']
-
-    // Constructor.
-    constructor(props) {
-        super(props);
-
-        // State
-        let {currentKeys} = this.props;
-        let newKey =  getRandomKey(currentKeys);
-        this.state = {
-            currentKey : newKey,
-            currentChord : getRandomChordFromKey(newKey),
-            currentQuestion : this.possibleQuestions[random(3)],
-        }
-        // End state
-    }
-    // End Constructor
-
     getSentenceValue(term) {
-        let { currentKey, currentChord, currentQuestion } = this.state;
+        let { currentKey, currentChord, currentQuestion } = this.props;
         const blankString = "_____"
         switch (term) {
             case 'chord':
@@ -43,20 +21,9 @@ class Sentence extends Component {
         }
     }
 
-    // Method to advance to next sentence.
-    next(){
-        let {currentKeys} = this.props;
-        let newKey =  getRandomKey(currentKeys);
-        this.setState({
-            currentKey : newKey,
-            currentChord : getRandomChordFromKey(newKey),
-            currentQuestion : this.possibleQuestions[random(3)],
-        });
-    }
-
     render() {
-        let { currentQuestion, currentKey, currentChord } = this.state;
-        let { currentKeys } = this.props;
+        let { currentQuestion, currentKey, currentChord } = this.props;
+        let { currentKeys, next } = this.props;
         return (
                 <div>
                     <span className='sentence-question'>
@@ -86,7 +53,7 @@ class Sentence extends Component {
                             currentKey={currentKey}
                             currentChord={currentChord}
                             currentQuestion={currentQuestion}
-                            onSkipClicked={() => this.next()}
+                            onSkipClicked={() => next()}
                         />
                 </div>
         );

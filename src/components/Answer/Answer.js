@@ -3,7 +3,6 @@ import VerdictContainer from "../VerdictContainer"
 
 // Constants
 import { nashvilleNumbers } from "../../constants/Constants";
-import {getAllDistinctChords} from "../../lib/helpers/random";
 
 class Answer extends Component {
     state = {

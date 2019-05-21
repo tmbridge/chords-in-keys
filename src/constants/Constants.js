@@ -9,6 +9,8 @@ export const getAllKeysWithTrueValue = (obj) => {
     return out;
 }
 
+export const possibleQuestions = ['chord','number','key']
+
 // Extend this when adding new keys to the app
 export const keyGroups = ['major', 'minor'];
 

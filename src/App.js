@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Sentence from './components/Sentence/Sentence'
 import Settings from './components/Settings'
 import './App.css';
-import {allScales, getAccidentalFromNoteString, getAllKeysWithTrueValue, keyFormulas, nashvilleNumbers, keyGroups} from "./constants/Constants";
+import {possibleQuestions, allScales, getAccidentalFromNoteString, getAllKeysWithTrueValue, keyFormulas, nashvilleNumbers, keyGroups} from "./constants/Constants";
+import {getRandomChordFromKey, getRandomKey, random} from "./lib/helpers/random";
 
 class App extends Component
 {
@@ -93,9 +94,14 @@ class App extends Component
             return filteredKeyGroups;
         }
 
+        let currentKeys = removeKeyGroupsBySettingsKeyQuality(getAllKeysWithTrueValue(this.state.keyQualities));
+        let newKey =  getRandomKey(currentKeys);
         this.setState({
-            currentKeys: removeKeyGroupsBySettingsKeyQuality(getAllKeysWithTrueValue(this.state.keyQualities)),
+            currentKeys: currentKeys,
             allKeyQualities: Object.keys(allKeyGroupsWithFilteredKeys),
+            currentKey : newKey,
+            currentChord : getRandomChordFromKey(newKey),
+            currentQuestion : possibleQuestions[random(3)],
         })
     }
 
@@ -126,20 +132,39 @@ class App extends Component
         this.resetCurrentKeysByFilters();
     }
 
+
+    // Method to advance to next sentence.
+    next(){
+        let {currentKeys} = this.state;
+        let newKey =  getRandomKey(currentKeys);
+        this.setState({
+            currentKey : newKey,
+            currentChord : getRandomChordFromKey(newKey),
+            currentQuestion : possibleQuestions[random(3)],
+        });
+    }
+
     render()
     {
         let settings = this.state;
-        let { currentKeys } = this.state;
+        let { currentKeys, currentKey, currentQuestion, currentChord } = this.state;
         return (
             <div className="App">
                 <header className="App-header">
-                    <Sentence currentKeys={currentKeys} />
+                    <Sentence
+                        currentKeys={currentKeys}
+                        currentKey={currentKey}
+                        currentQuestion={currentQuestion}
+                        currentChord={currentChord}
+                        next={() => this.next()}
+                    />
                 </header>
                 <div>
                 </div>
                 <Settings
                     settings={settings}
                     handleCheckboxChange={() => this.handleCheckboxChange()}
+                    next={() => this.next()}
                     allKeyQualities={this.allKeyQualities}
                 />
             </div>
