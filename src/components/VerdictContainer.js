@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 // Constants
-import {currentKeys, keyGroups, nashvilleNumbers } from "../Constants";
-import {getAllDistinctChords, getRandomChordFromKey} from "../RandomKeyGenerator";
-
 class VerdictContainer extends Component {
     state = {
         derivedCurrentQuestion: '',
@@ -16,7 +12,7 @@ class VerdictContainer extends Component {
         let { value } = this.props;
         return (
             <div>
-            Guess Status: {((value == 1) ? "Correct" : "Incorrect" )}
+            Guess Status: {((value === 1) ? "Correct" : "Incorrect" )}
             </div>
         );
     }

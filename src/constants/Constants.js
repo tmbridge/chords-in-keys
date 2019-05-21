@@ -1,4 +1,19 @@
-// Export is a node thing but also a webpack thing... TODO: research export
+export const getAllKeysWithTrueValue = (obj) => {
+    let out = [];
+    let keys = Object.keys(obj);
+    for (let i of keys) {
+        if (obj[i] === true){
+            out.push(i);
+        }
+    }
+    return out;
+}
+
+export const possibleQuestions = ['chord','number','key']
+
+// Extend this when adding new keys to the app
+export const keyGroups = ['major', 'minor'];
+
 export const chordQualities = {
     major: {
         fullName: "major",
@@ -91,12 +106,11 @@ export const baseNotes = ['A','B','C','D','E','F','G'];
 
 // Nashville Numbers
 export const nashvilleNumbers = {
-    // TODO: make this a nested function that generates 1-7
-    arabic: [1, 2, 3, 4, 5, 6, 7],
+    arabic: Array.from(Array(7).keys(), n => n + 1),
     roman: ['I','II','III','IV','V','VI','VII'],
     };
 
-export const majorScales = [
+export const allMajorScales = [
         // C
         [ 'C', 'D', 'E', 'F', 'G', 'A', 'B' ],
 
@@ -146,41 +160,26 @@ export const majorScaleToMinorScale = (majorScale) => {
     return minorScale;
 }
 
-export const buildRelativeMinorScales = () => {
-    let minorScalesContainer = [];
-    for (let majorScale of majorScales) {
-        minorScalesContainer.push(majorScaleToMinorScale(majorScale));
-    }
-    return minorScalesContainer;
-}
-
-// TODO: Question: Is there a better way to handle this process (constant generated from function).
-// TODO: Replace build Function with closure for this kind of function.
-export const minorScales = buildRelativeMinorScales();
-
-export const allScales = {
-    major: majorScales,
-    minor: minorScales,
-};
+export const allMinorScales = allMajorScales.map(scale => majorScaleToMinorScale(scale));
 
 export const keyFormulas = {
     major : [
-            chordQualities.major,
-            chordQualities.minor,
-            chordQualities.minor,
-            chordQualities.major,
-            chordQualities.major,
-            chordQualities.minor,
-            chordQualities.dim,
+        chordQualities.major,
+        chordQualities.minor,
+        chordQualities.minor,
+        chordQualities.major,
+        chordQualities.major,
+        chordQualities.minor,
+        chordQualities.dim,
     ],
     minor : [
-            chordQualities.minor,
-            chordQualities.dim,
-            chordQualities.major,
-            chordQualities.minor,
-            chordQualities.minor,
-            chordQualities.major,
-            chordQualities.major,
+        chordQualities.minor,
+        chordQualities.dim,
+        chordQualities.major,
+        chordQualities.minor,
+        chordQualities.minor,
+        chordQualities.major,
+        chordQualities.major,
     ],
 }
 
@@ -208,54 +207,20 @@ export const getAccidentalFromNoteString = (noteString) => {
     return accidentals.natural;
 }
 
-export const buildKeys = (keyQuality) => {
-    let allKeys = {};
-    for (let scale of allScales[keyQuality]) {
-        // Build key
-        let chords = [];
-        let keyName = ((keyQuality == 'major') ? scale[0] : scale[0] + "m");
-        for (let noteString of scale) {
-            //Build chord
-            let noteInterval = scale.indexOf(noteString);
-            let noteQuality = keyFormulas[keyQuality][noteInterval];
-            let chord = {
-                nashvilleRoman: nashvilleNumbers.roman[noteInterval],
-                nashvilleArabic: nashvilleNumbers.arabic[noteInterval],
-                chordFullName: noteString + " " + noteQuality.fullName,
-                chordAbbreviation: noteString + noteQuality.textAbbreviation,
-                chordQualityFull: noteQuality.fullName,
-                chordQualityAbbreviation: noteQuality.textAbbreviation,
-                baseNote: noteString,
-                accidental: getAccidentalFromNoteString(noteString),
-            };
-            chords.push(chord);
-        }
-        allKeys[keyName] = {
-            keyName: chords[0].chordAbbreviation,
-            keyQuality: keyQuality,
-            chords: chords,
-        };
+
+export const getScale = (scaleName) => {
+    switch (scaleName) {
+        case 'major':
+            return allMajorScales;
+        case 'minor':
+            return allMinorScales;
+        default:
+            return "UhOh!";
     }
-    return allKeys;
 }
 
-//TODO: replace usages of this with allKeyGroups.x
-export const majorKeys = buildKeys('major');
-
-export const minorKeys = buildKeys('minor');
-
-export const keyGroups = {
-    major: buildKeys('major'),
-    minor: buildKeys('minor'),
-}
-
-// TODO: Use config to determine which source objects are used in parameter.
-export const getCurrentKeys = (keyQualityConfigSettings=[majorKeys,minorKeys]) => {
-    let currentKeys = {};
-    for (let selectedKeyQuality of keyQualityConfigSettings) {
-        currentKeys = Object.assign(currentKeys, selectedKeyQuality);
-    }
-    return currentKeys;
-}
-
-export const currentKeys = getCurrentKeys();
+export const allScales = function () {
+    const out = {};
+    keyGroups.forEach(value => out[value] = getScale(value));
+    return out;
+}();

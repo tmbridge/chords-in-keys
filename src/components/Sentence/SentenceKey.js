@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { PureComponent } from 'react';
 
-class SentenceKey extends Component {
+class SentenceKey extends PureComponent {
     render() {
         return this.props.value;
     }
