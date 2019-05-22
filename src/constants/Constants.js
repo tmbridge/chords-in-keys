@@ -107,7 +107,10 @@ export const baseNotes = ['A','B','C','D','E','F','G'];
 // Nashville Numbers
 export const nashvilleNumbers = {
     arabic: Array.from(Array(7).keys(), n => n + 1),
-    roman: ['I','II','III','IV','V','VI','VII'],
+    roman: {
+        major: ['I','ii','iii','IV','V','vi','vii'],
+        minor: ['i','ii','III','iv','V','VI','vii'],
+    },
     };
 
 export const allMajorScales = [
