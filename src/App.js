@@ -58,7 +58,7 @@ class App extends Component
                     let noteInterval = scale.indexOf(noteString);
                     let noteQuality = keyFormulas[keyQuality][noteInterval];
                     let chord = {
-                        nashvilleRoman: nashvilleNumbers.roman[noteInterval],
+                        nashvilleRoman: nashvilleNumbers.roman[keyQuality][noteInterval],
                         nashvilleArabic: nashvilleNumbers.arabic[noteInterval],
                         chordFullName: `${noteString}  ${noteQuality.fullName}`,
                         chordAbbreviation: noteString + noteQuality.textAbbreviation,

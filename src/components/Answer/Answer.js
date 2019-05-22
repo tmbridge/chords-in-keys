@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import VerdictContainer from "../VerdictContainer"
 
-// Constants
+// Constants & Utils
 import { nashvilleNumbers } from "../../constants/Constants";
+import { getKeyQuality } from "../../lib/helpers/utils"
 
 class Answer extends Component {
     state = {
@@ -42,12 +43,12 @@ class Answer extends Component {
     }
 
     getCurrentPossibleAnswers = () => {
-        let { currentQuestion, currentKeys } = this.props;
+        let { currentQuestion, currentKeys, currentKey } = this.props;
         switch (currentQuestion) {
             case 'chord':
                 return this.getAllDistinctChords(currentKeys).sort();
             case 'number':
-                return nashvilleNumbers.roman.sort();
+                return nashvilleNumbers.roman[getKeyQuality(currentKey).fullName];
             case 'key':
                 return Object.keys(currentKeys).sort();
             default:
