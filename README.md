@@ -1,3 +1,23 @@
+TODO LIST:
+<ul>
+    <li>Done - Refactor functions out of Constants into requisite components</li>
+    <li>Done - Filter randomizer for specific key qualities</li>
+    <li>Done - Filter randomizer for specific key accidentals</li>
+    <li>Done - Filter randomizer for specfic keys</li>
+    <li>Done - choose which of the three variables (Key, Number, Chord) get randomly 'blanked'</li>
+    <li>Upper/Lower case roman numbers.</li>
+    <li>Show guess value within sentence with green or red correct/incorrect</li>
+    <li>Setting to allow only 1 of the 3 questions (chord, number, key)
+    <li>Global Setting for Roman or Arabic Numerals (backend Done, need settings & FE)</li>
+    <li>Time allowed per sentence before hard failure</li>
+    <li>Number of attempts before hard failure</li>
+    <li>"Game-ification - Keep Score and Show a Timer.  Keep High Score."</li>
+    <li>Allow filtering by Chord/number/key.  So if you only want to study G#'s, or IV's, or a single Key. 
+    <li>etc.</li>
+</ul>
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
