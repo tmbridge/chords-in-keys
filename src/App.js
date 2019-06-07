@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTodo as addTodoAction } from './redux/example/actions';
 import Sentence from './components/Sentence/Sentence'
 import Settings from './components/Settings'
 import './App.css';
@@ -107,6 +109,7 @@ class App extends Component
 
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             keyQualities: {
                 major: true,
@@ -148,8 +151,17 @@ class App extends Component
     {
         let settings = this.state;
         let { currentKeys, currentKey, currentQuestion, currentChord } = this.state;
+        const { addTodo, items } = this.props;
         return (
+            // map over items in render function
+            // items.map()
             <div className="App">
+                <button
+                    className="btn"
+                    onClick={() => addTodo(`Dispatched ${Date.now()}`)}
+                >
+                    Dispatch Action
+                </button>
                 <header className="App-header">
                     <Sentence
                         currentKeys={currentKeys}
@@ -172,4 +184,16 @@ class App extends Component
     }
 }
 
-export default App;
+const mapStateToProps = state => ({
+    items: state.example,
+});
+
+const mapDispatchToProps = dispatch => ({
+    addTodo: (text) => dispatch(addTodoAction(text)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(App);
+
